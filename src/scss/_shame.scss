@@ -1,0 +1,465 @@
+/*---------------------------------------------------------------------------
+
+
+Shame - Stuff We Need to Clean Up
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+$grid: 8px;
+
+$brand-primary: #3FA9F5;
+
+$app-blue-light: #2C4059;
+$app-blue-dark: #1E2E43;
+$app-blue-darker: #182638;
+
+$aside-light-white: #D6DFE5;
+$aside-medium-white: #AFC2D0;
+$aside-divider-blue: #314760;
+$medium-blue: #4C7691;
+
+$lightest-gray: #F2F6F9;
+
+$divider-on-white: #EAEFF5;
+
+$blue-gray: #8EA6BA;
+
+$primary-font: "sofia-pro", sans-serif;
+$secondary-font: "proxima-nova", sans-serif;
+
+html{
+  font-family: $primary-font;
+  font-size: 14px;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  margin: 0;
+  padding: 0;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+//Semi-Bold: 600
+
+
+/*------------------------------------------------------------------------
+  General Layout
+------------------------------------------------------------------------*/
+
+.page-shift-wrap{
+  padding-left: $grid*25;
+}
+
+
+/*------------------------------------------------------------------------
+  Primary Navigation
+------------------------------------------------------------------------*/
+
+.primary-menu{
+  width: $grid*25;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient( 20deg, $app-blue-dark, $app-blue-light );
+  .school-card{
+    box-sizing: border-box;
+    border-bottom: 1px solid $aside-divider-blue;
+    padding-bottom: $grid*2.5;
+    .school-card__thumb{
+      vertical-align: top;
+    }
+    .school-card__name{
+      font-size: 20px;
+      font-weight: 400;
+      color: $aside-light-white;
+      line-height: $grid*2;
+      padding: 0 $grid*3;
+      margin-top: $grid*2.5  - 1px; //Offset Border
+      margin-bottom: $grid;
+    }
+    .school-card__location{
+      font-size: 0.857rem;
+      font-family: $secondary-font;
+      font-weight: 300;
+      color: $aside-medium-white;
+      text-transform: uppercase;
+      line-height: $grid;
+      display: block;
+      padding: 0 $grid*3;
+      margin: 0;
+    }
+  }
+  .primary-nav{
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        margin: 0;
+        padding: 0;
+      }
+    }
+    a{
+      color: $aside-medium-white;
+      display: block;
+      line-height: $grid*2;
+      padding: $grid*1.5 $grid*3;
+      &:hover{
+        background: $app-blue-darker;
+      }
+    }
+    li{
+      border-bottom: 1px solid $aside-divider-blue;
+    }
+    .primary-nav__child-menu-label{
+      line-height: $grid;
+      font-size: 0.786em;
+      font-family: $secondary-font;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: block;
+      color: $medium-blue;
+      padding: $grid*3 $grid*3 $grid*1 $grid*3;
+    }
+    .primary-nav__child-menu{
+      padding-bottom: $grid*2;
+      li{
+        border-bottom: none;
+      }
+      a{
+        padding: $grid*1 $grid*3;
+      }
+    }
+  }
+}
+
+svg{
+  vertical-align: top;
+}
+
+
+/*------------------------------------------------------------------------
+  Main Header
+------------------------------------------------------------------------*/
+
+.main-header{
+  height: $grid*8;
+  border-bottom: 1px solid $divider-on-white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 200px;
+  display: flex;
+  .main-header__menu-toggle{
+    width: $grid*8;
+    height: $grid*8;
+    display: block;
+    border-right: 1px solid $divider-on-white;
+    position: relative;
+    overflow: hidden;
+    &:hover{
+      background: $divider-on-white;
+    }
+    .bar{
+      width: 24px;
+      height: 2px;
+      background: $blue-gray;
+      position: absolute;
+      left: 50%;
+      margin-left: -9px;
+      border-radius: 2px;
+      top: 50%;
+      transition: all 0.15s ease-in-out;
+    }
+    .bar-1{
+      top: 50%;
+      margin-top: -7px;
+    }
+    .bar-2{
+      top: 50%;
+      margin-top: -1px;
+      width: 20px;
+      margin-left: -5px;
+    }
+    .bar-3{
+      margin-top: 5px;
+    }
+    .app-icon{
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      width: 24px;
+      height: 24px;
+      transition: all 0.15s ease-in-out;
+    }
+    .app-icon--left{
+      left: 7px;
+      transform: rotateZ(180deg);
+    }
+    .app-icon--right{
+      right: -20px
+    }
+    &.active{
+      .bar{
+        margin-left: -15px;
+      }
+      .bar-2{
+        margin-left: -15px;
+      }
+      .app-icon--left{
+        left: -20px;
+      }
+      .app-icon--right{
+        right: 7px;
+      }
+    }
+  }
+  .main-header__logo{
+    display: block;
+    padding-left: $grid*3;
+    padding-right: $grid*3;
+    svg{
+      width: 90px;
+      height: $grid*8;
+      overflow: hidden;
+    }
+  }
+  .main-header--left{
+    display: flex;
+  }
+  .main-header--right{
+    display: flex;
+    margin-left: auto;
+  }
+
+  .profile-mini-card{
+      padding: $grid $grid*2;
+      display: flex;
+      align-items: center;
+      .profile-mini-card__info{
+        padding-right: $grid*2;
+        text-align: right;
+      }
+        .profile-mini-card__name{
+          color: $medium-blue;
+          display: block;
+        }
+        .profile-mini-card__title{
+          line-height: $grid;
+          font-size: 0.714em;
+          font-family: $secondary-font;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: $medium-blue;
+          opacity: 0.55;
+          display: block;
+        }
+      //end .profile-mini-card__info
+    .profile-mini-card__thumb{
+      width: $grid*6;
+      height: $grid*6;
+      border-radius: $grid*6;
+    }
+  }
+
+  .main-header__sign-out,
+  .nav-settings__toggle{
+    border-left: 1px solid $divider-on-white;
+    box-sizing: border-box;
+    width: $grid*8;
+    height: $grid*8;
+    padding: $grid*2;
+    display: block;
+    &:hover{
+      background: $divider-on-white;
+    }
+    .app-icon{
+      width: $grid*4;
+      height: $grid*4;
+    }
+  }
+
+  .nav-settings__toggle{
+    position: relative;
+    overflow: hidden;
+    color: $blue-gray;
+    transition: color 0.15s ease-in-out;
+    .app-icon{
+      transition: all 0.15s ease-in-out;
+    }
+    .nav-settings__caret{
+      opacity: 0;
+      width: $grid*2;
+      height: $grid*2;
+      border-left: 1px solid $divider-on-white;
+      border-top: 1px solid $divider-on-white;
+      background: #fff;
+      transform: rotateZ(45deg);
+      position: absolute;
+      left: 50%;
+      margin-left: -$grid;
+      box-sizing: border-box;
+      bottom: -$grid*2;
+      transition: all 0.15s ease-in-out;
+    }
+    &.active{
+      overflow: visible;
+      background: $divider-on-white;
+      color: $brand-primary;
+      .nav-settings__caret{
+        opacity: 1;
+        bottom: -$grid;
+      }
+      .app-icon{
+        transform: rotateZ(45deg);
+      }
+    }
+  }
+
+  .nav-settings{
+    position: relative;
+  }
+    .nav-settings__flyout{
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: $grid*8 + 1;
+      background: #fff;
+      //box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+      width: $grid*36;
+      border-left: 1px solid $divider-on-white;
+      border-top: none;
+      right: 0;
+      transition: all 0.15s ease-in-out;
+      .temp-icon{
+        border: 1px solid $blue-gray;
+        width: $grid*6;
+        height: $grid*6;
+        border-radius: $grid*6;
+        margin: 0 auto $grid;
+      }
+      a{
+        border-right: 1px solid $divider-on-white;
+        border-bottom: 1px solid $divider-on-white;
+        text-align: center;
+        color: $blue-gray;
+        font-family: $secondary-font;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        font-size: 0.714em;
+        float: left;
+        box-sizing: border-box;
+        width: $grid*12;
+        height: $grid*12;
+        display: block;
+        opacity: 0;
+        margin-top: 0;
+        &:hover{
+          color: $brand-primary;
+          .temp-icon{
+            border: 1px solid $brand-primary;
+          }
+          //background: $lightest-gray;
+        }
+        transition: opacity 0.15s ease-in-out;
+        .temp-icon{
+          transition: margin-top 0.15s ease-in-out;
+        }
+        &:nth-child(1){
+          transition-delay: 0.04s;
+          .temp-icon{
+            transition-delay: 0.04s;
+          }
+        }
+        &:nth-child(2){
+          transition-delay: 0.02s;
+          .temp-icon{
+            transition-delay: 0.02s;
+          }
+        }
+        &:nth-child(3){
+          transition-delay: 0.00s;
+          .temp-icon{
+            transition-delay: 0.00s;
+          }
+        }
+        &:nth-child(4){
+          transition-delay: 0.04s;
+          .temp-icon{
+            transition-delay: 0.04s;
+          }
+        }
+        &:nth-child(5){
+          transition-delay: 0.02s;
+          .temp-icon{
+            transition-delay: 0.02s;
+          }
+        }
+        &:nth-child(6){
+          transition-delay: 0.02s;
+          .temp-icon{
+            transition-delay: 0.02s;
+          }
+        }
+        &:nth-child(7){
+          transition-delay: 0.04s;
+          .temp-icon{
+            transition-delay: 0.04s;
+          }
+        }
+        &:nth-child(8){
+          transition-delay: 0.04s;
+          .temp-icon{
+            transition-delay: 0.04s;
+          }
+        }
+        &:nth-child(9){
+          transition-delay: 0.04s;
+          .temp-icon{
+            transition-delay: 0.04s;
+          }
+        }
+      }
+      &.active{
+        height: $grid*36;
+        opacity: 1;
+        a{
+          opacity: 1;
+          .temp-icon{
+            margin-top: $grid*1.5;
+          }
+        }
+      }
+    }
+  //end .nav-settings
+
+
+}

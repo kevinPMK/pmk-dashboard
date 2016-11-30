@@ -1,0 +1,43 @@
+/*---------------------------------------------------------------------------
+
+
+Config
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+/* --------------------------------------
+	Layout
+---------------------------------------*/
+
+/* Queries, Built by http://include-media.com/#features */
+$breakpoints: (
+  xs: 500px,
+  sm: 800px,
+  med: 1280px,
+  lg: 1680px
+);
+
+$page-max-width: 1320px;
+
+$grid: 12px;
+
+
+/* --------------------------------------
+	Fonts
+
+  font-family:'Cooper BT W00';
+  font-family:'Posterama Text W01';
+  font-family:'Proxima Nova W01';
+
+---------------------------------------*/
+
+$heading-font: 'Cooper BT W00', serif;
+$copy-font: 'Posterama Text W01', sans-serif;
+$meta-font: 'Proxima Nova W01', sans-serif;
+
+$copy-color: #858FA9;
+$focus-color: #6d599b;
+$focus-color-dark: #34283c;

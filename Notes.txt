@@ -1,0 +1,52 @@
+PMK Dashboard Task Breakdown.
+
+Side Navigation:
+ - Build Markup and Styles
+ - Make Toggle-able
+ - Build Collapsed Hover State
+ - Add toggle transition
+ - Create collapsed toggle navigation
+
+Top Navigation
+ - Convert logo to SVG
+ - Add toggle state menu icon
+ - Animate toggle state on menu icon
+ - Create profile card
+ - Create settings toggle
+
+ Right Sidebar
+  - Dismissal Progress Widget
+   - Create gradient donut chart
+  - Dismissal Progress Breakdown Widget
+   - Create gradient bar chart
+
+Dashboard Page -
+  - Create "Time" global filter. (UX ISSUES HERE).
+  - Create "Recent Activity" Widget
+   - Create Widget Display Filters
+   - Make widget collapsible
+   - Add data change transitions
+  - Create "Leaderboards" widget
+   - Create "Information" toggle
+   - Make widget collapsible
+  - Create "Dismissal Information" widget
+  - Create "Staff Directory" widget
+   - Identify Staff Directory status
+   - Create solution for large lists
+  - Create "Registered Parents" widget
+   - Create gradient donut chart
+   - Create gradient bar chart
+  - Create "Weather Update" widget
+
+
+
+
+TODO:
+
+Create "View Breakdown" page for Dismissal Progress
+Create "View Delegations" page for Dismissal Progress Breakdown
+Possible Refactor Right Sidebar
+Create "View All Activity" Page
+Create "View Specific Activity" function for the "View All Activity" page.
+Create "Resend one time password" Modal
+Create "Parent List" page
