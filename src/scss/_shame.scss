@@ -15,6 +15,7 @@ $brand-primary: #3FA9F5;
 $app-blue-light: #2C4059;
 $app-blue-dark: #1E2E43;
 $app-blue-darker: #182638;
+$app-blue-darkest: darken(#182638, 5%);
 
 $aside-light-white: #D6DFE5;
 $aside-medium-white: #AFC2D0;
@@ -29,6 +30,8 @@ $blue-gray: #8EA6BA;
 
 $primary-font: "sofia-pro", sans-serif;
 $secondary-font: "proxima-nova", sans-serif;
+
+$curved-transition: cubic-bezier(.34,.61,.59,1.11);
 
 html{
   font-family: $primary-font;
@@ -70,7 +73,18 @@ li{
 ------------------------------------------------------------------------*/
 
 .page-shift-wrap{
+  transition: all 0.15s $curved-transition;
   padding-left: $grid*25;
+  &.menu-collapsed{
+    padding-left: $grid*8;
+  }
+}
+
+.main-header{
+  transition: all 0.15s $curved-transition;
+  &.menu-collapsed{
+    left: $grid*8;
+  }
 }
 
 
@@ -81,18 +95,28 @@ li{
 .primary-menu{
   width: $grid*25;
   position: fixed;
+  z-index: 10;
   left: 0;
   top: 0;
   bottom: 0;
   background: linear-gradient( 20deg, $app-blue-dark, $app-blue-light );
+  transition: all 0.15s $curved-transition;
   .school-card{
     box-sizing: border-box;
-    border-bottom: 1px solid $aside-divider-blue;
-    padding-bottom: $grid*2.5;
+    overflow: hidden;
     .school-card__thumb{
+      text-align: center;
       vertical-align: top;
+      width: $grid*25;
+      height: $grid*8;
+      background: url('../src/images/school-placeholder@2x.png') center center no-repeat;
+      background-size: $grid*25 $grid*8;
+      transition: all 0.15s $curved-transition;
     }
     .school-card__name{
+      float: right;
+      box-sizing: border-box;
+      width: $grid*25;
       font-size: 20px;
       font-weight: 400;
       color: $aside-light-white;
@@ -100,8 +124,13 @@ li{
       padding: 0 $grid*3;
       margin-top: $grid*2.5  - 1px; //Offset Border
       margin-bottom: $grid;
+      opacity: 1;
+      transition: all 0.15s $curved-transition;
     }
     .school-card__location{
+      float: right;
+      box-sizing: border-box;
+      width: $grid*25;
       font-size: 0.857rem;
       font-family: $secondary-font;
       font-weight: 300;
@@ -111,9 +140,17 @@ li{
       display: block;
       padding: 0 $grid*3;
       margin: 0;
+      border-bottom: 1px solid $aside-divider-blue;
+      padding-bottom: $grid*2.5;
+      opacity: 1;
+      transition: all 0.15s $curved-transition;
     }
   }
   .primary-nav{
+    float: right;
+    width: $grid*25;
+    opacity: 1;
+    transition: all 0.15s $curved-transition;
     ul{
       list-style: none;
       margin: 0;
@@ -156,10 +193,138 @@ li{
       }
     }
   }
+  .collapsed-primary-nav{
+    position: absolute;
+    top: $grid*8;
+    left: -$grid*8;
+    transition: left 0.15s $curved-transition;
+    .app-icon{
+      width: $grid*8;
+      height: $grid*8;
+    }
+    >ul{
+      >li{
+        list-style: none;
+        border-bottom: 1px solid $aside-divider-blue;
+        position: relative;
+        transition: all 0.15s $curved-transition;
+        opacity: 0;
+        margin-top: -10px;
+        >a, >span{
+          cursor: pointer;
+          color: $aside-medium-white;
+          display: block;
+          width: $grid*8;
+          height: $grid*8;
+          &:hover{
+            background: $app-blue-darker;
+          }
+        }
+        &:nth-child(1){
+          transition-delay: 0.02s;
+        }
+        &:nth-child(2){
+          transition-delay: 0.04s;
+        }
+        &:nth-child(3){
+          transition-delay: 0.06s;
+        }
+        &:nth-child(4){
+          transition-delay: 0.08s;
+        }
+        &:nth-child(5){
+          transition-delay: 0.10s;
+        }
+        &:nth-child(6){
+          transition-delay: 0.12s;
+        }
+        &:nth-child(7){
+          transition-delay: 0.14s;
+        }
+        &:nth-child(8){
+          transition-delay: 0.16s;
+        }
+        &:nth-child(9){
+          transition-delay: 0.18s;
+        }
+      }
+    }
+    li{
+      list-style: none;
+    }
+    .primary-nav__child-menu{
+      left: $grid*8;
+      width: 0;
+      overflow: hidden;
+      padding-left: $grid;
+      background: $app-blue-dark;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      transition: all 0.15s $curved-transition;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid $app-blue-light;
+      li{
+        a{
+          border: 1px solid $app-blue-light;
+          margin-top: -1px;
+          width: $grid*25;
+          box-sizing: border-box;
+          color: $aside-medium-white;
+          display: block;
+          line-height: $grid*2;
+          padding: $grid*1.5 $grid*3;
+          &:hover{
+            background: $app-blue-darkest;
+          }
+        }
+      }
+    }
+    .has-sub-nav:hover{
+      background: $app-blue-darker;
+      .primary-nav__child-menu{
+        width: $grid*25;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 svg{
   vertical-align: top;
+}
+
+/* Primary Navigation Collapsed */
+
+.primary-menu.collapsed{
+  width: $grid*8;
+  .school-card{
+    .school-card__thumb{
+      width: $grid*8;
+    }
+    .school-card__location{
+      opacity: 0;
+      margin-right: $grid*8;
+    }
+    .school-card__name{
+      opacity: 0;
+      margin-right: $grid*8;
+    }
+  }
+  .primary-nav{
+    opacity: 0;
+    margin-right: $grid*8;
+  }
+  .collapsed-primary-nav{
+    left: 0;
+    >ul{
+      >li{
+        opacity: 1;
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 
@@ -194,7 +359,7 @@ svg{
       margin-left: -9px;
       border-radius: 2px;
       top: 50%;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s $curved-transition;
     }
     .bar-1{
       top: 50%;
@@ -215,7 +380,7 @@ svg{
       margin-top: -12px;
       width: 24px;
       height: 24px;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s $curved-transition;
     }
     .app-icon--left{
       left: 7px;
@@ -294,24 +459,23 @@ svg{
     box-sizing: border-box;
     width: $grid*8;
     height: $grid*8;
-    padding: $grid*2;
     display: block;
+    color: $blue-gray;
     &:hover{
       background: $divider-on-white;
     }
     .app-icon{
-      width: $grid*4;
-      height: $grid*4;
+      width: $grid*8;
+      height: $grid*8;
     }
   }
 
   .nav-settings__toggle{
     position: relative;
     overflow: hidden;
-    color: $blue-gray;
-    transition: color 0.15s ease-in-out;
+    transition: color 0.15s $curved-transition;
     .app-icon{
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s $curved-transition;
     }
     .nav-settings__caret{
       opacity: 0;
@@ -326,7 +490,7 @@ svg{
       margin-left: -$grid;
       box-sizing: border-box;
       bottom: -$grid*2;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s $curved-transition;
     }
     &.active{
       overflow: visible;
@@ -357,7 +521,7 @@ svg{
       border-left: 1px solid $divider-on-white;
       border-top: none;
       right: 0;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s $curved-transition;
       .temp-icon{
         border: 1px solid $blue-gray;
         width: $grid*6;
@@ -389,9 +553,9 @@ svg{
           }
           //background: $lightest-gray;
         }
-        transition: opacity 0.15s ease-in-out;
+        transition: opacity 0.15s $curved-transition;
         .temp-icon{
-          transition: margin-top 0.15s ease-in-out;
+          transition: margin-top 0.15s $curved-transition;
         }
         &:nth-child(1){
           transition-delay: 0.04s;

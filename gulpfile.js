@@ -19,8 +19,8 @@ gulp.task('images', () =>
 
 gulp.task('styles',function() {
   // Compiles CSS
-  gulp.src('src/scss/main.scss')
-    .pipe(sass())
+  return gulp.src('src/scss/main.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('./src/'))
 });

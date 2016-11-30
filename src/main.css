@@ -75,7 +75,17 @@ li {
   General Layout
 ------------------------------------------------------------------------*/
 .page-shift-wrap {
+  -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+  transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
   padding-left: 200px; }
+  .page-shift-wrap.menu-collapsed {
+    padding-left: 64px; }
+
+.main-header {
+  -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+  transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
+  .main-header.menu-collapsed {
+    left: 64px; }
 
 /*------------------------------------------------------------------------
   Primary Navigation
@@ -83,26 +93,44 @@ li {
 .primary-menu {
   width: 200px;
   position: fixed;
+  z-index: 10;
   left: 0;
   top: 0;
   bottom: 0;
   background: -webkit-linear-gradient(70deg, #1E2E43, #2C4059);
-  background: linear-gradient(20deg, #1E2E43, #2C4059); }
+  background: linear-gradient(20deg, #1E2E43, #2C4059);
+  -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+  transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
   .primary-menu .school-card {
     box-sizing: border-box;
-    border-bottom: 1px solid #314760;
-    padding-bottom: 20px; }
+    overflow: hidden; }
     .primary-menu .school-card .school-card__thumb {
-      vertical-align: top; }
+      text-align: center;
+      vertical-align: top;
+      width: 200px;
+      height: 64px;
+      background: url("../src/images/school-placeholder@2x.png") center center no-repeat;
+      background-size: 200px 64px;
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .primary-menu .school-card .school-card__name {
+      float: right;
+      box-sizing: border-box;
+      width: 200px;
       font-size: 20px;
       font-weight: 400;
       color: #D6DFE5;
       line-height: 16px;
       padding: 0 24px;
       margin-top: 19px;
-      margin-bottom: 8px; }
+      margin-bottom: 8px;
+      opacity: 1;
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .primary-menu .school-card .school-card__location {
+      float: right;
+      box-sizing: border-box;
+      width: 200px;
       font-size: 0.857rem;
       font-family: "proxima-nova", sans-serif;
       font-weight: 300;
@@ -111,42 +139,157 @@ li {
       line-height: 8px;
       display: block;
       padding: 0 24px;
-      margin: 0; }
-  .primary-menu .primary-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    .primary-menu .primary-nav ul li {
+      margin: 0;
+      border-bottom: 1px solid #314760;
+      padding-bottom: 20px;
+      opacity: 1;
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
+  .primary-menu .primary-nav {
+    float: right;
+    width: 200px;
+    opacity: 1;
+    -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+    transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
+    .primary-menu .primary-nav ul {
+      list-style: none;
       margin: 0;
       padding: 0; }
-  .primary-menu .primary-nav a {
-    color: #AFC2D0;
-    display: block;
-    line-height: 16px;
-    padding: 12px 24px; }
-    .primary-menu .primary-nav a:hover {
+      .primary-menu .primary-nav ul li {
+        margin: 0;
+        padding: 0; }
+    .primary-menu .primary-nav a {
+      color: #AFC2D0;
+      display: block;
+      line-height: 16px;
+      padding: 12px 24px; }
+      .primary-menu .primary-nav a:hover {
+        background: #182638; }
+    .primary-menu .primary-nav li {
+      border-bottom: 1px solid #314760; }
+    .primary-menu .primary-nav .primary-nav__child-menu-label {
+      line-height: 8px;
+      font-size: 0.786em;
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: block;
+      color: #4C7691;
+      padding: 24px 24px 8px 24px; }
+    .primary-menu .primary-nav .primary-nav__child-menu {
+      padding-bottom: 16px; }
+      .primary-menu .primary-nav .primary-nav__child-menu li {
+        border-bottom: none; }
+      .primary-menu .primary-nav .primary-nav__child-menu a {
+        padding: 8px 24px; }
+  .primary-menu .collapsed-primary-nav {
+    position: absolute;
+    top: 64px;
+    left: -64px;
+    -webkit-transition: left 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+    transition: left 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
+    .primary-menu .collapsed-primary-nav .app-icon {
+      width: 64px;
+      height: 64px; }
+    .primary-menu .collapsed-primary-nav > ul > li {
+      list-style: none;
+      border-bottom: 1px solid #314760;
+      position: relative;
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      opacity: 0;
+      margin-top: -10px; }
+      .primary-menu .collapsed-primary-nav > ul > li > a, .primary-menu .collapsed-primary-nav > ul > li > span {
+        cursor: pointer;
+        color: #AFC2D0;
+        display: block;
+        width: 64px;
+        height: 64px; }
+        .primary-menu .collapsed-primary-nav > ul > li > a:hover, .primary-menu .collapsed-primary-nav > ul > li > span:hover {
+          background: #182638; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(1) {
+        -webkit-transition-delay: 0.02s;
+                transition-delay: 0.02s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(2) {
+        -webkit-transition-delay: 0.04s;
+                transition-delay: 0.04s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(3) {
+        -webkit-transition-delay: 0.06s;
+                transition-delay: 0.06s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(4) {
+        -webkit-transition-delay: 0.08s;
+                transition-delay: 0.08s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(5) {
+        -webkit-transition-delay: 0.10s;
+                transition-delay: 0.10s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(6) {
+        -webkit-transition-delay: 0.12s;
+                transition-delay: 0.12s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(7) {
+        -webkit-transition-delay: 0.14s;
+                transition-delay: 0.14s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(8) {
+        -webkit-transition-delay: 0.16s;
+                transition-delay: 0.16s; }
+      .primary-menu .collapsed-primary-nav > ul > li:nth-child(9) {
+        -webkit-transition-delay: 0.18s;
+                transition-delay: 0.18s; }
+    .primary-menu .collapsed-primary-nav li {
+      list-style: none; }
+    .primary-menu .collapsed-primary-nav .primary-nav__child-menu {
+      left: 64px;
+      width: 0;
+      overflow: hidden;
+      padding-left: 8px;
+      background: #1E2E43;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #2C4059; }
+      .primary-menu .collapsed-primary-nav .primary-nav__child-menu li a {
+        border: 1px solid #2C4059;
+        margin-top: -1px;
+        width: 200px;
+        box-sizing: border-box;
+        color: #AFC2D0;
+        display: block;
+        line-height: 16px;
+        padding: 12px 24px; }
+        .primary-menu .collapsed-primary-nav .primary-nav__child-menu li a:hover {
+          background: #101a26; }
+    .primary-menu .collapsed-primary-nav .has-sub-nav:hover {
       background: #182638; }
-  .primary-menu .primary-nav li {
-    border-bottom: 1px solid #314760; }
-  .primary-menu .primary-nav .primary-nav__child-menu-label {
-    line-height: 8px;
-    font-size: 0.786em;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    display: block;
-    color: #4C7691;
-    padding: 24px 24px 8px 24px; }
-  .primary-menu .primary-nav .primary-nav__child-menu {
-    padding-bottom: 16px; }
-    .primary-menu .primary-nav .primary-nav__child-menu li {
-      border-bottom: none; }
-    .primary-menu .primary-nav .primary-nav__child-menu a {
-      padding: 8px 24px; }
+      .primary-menu .collapsed-primary-nav .has-sub-nav:hover .primary-nav__child-menu {
+        width: 200px;
+        opacity: 1; }
 
 svg {
   vertical-align: top; }
+
+/* Primary Navigation Collapsed */
+.primary-menu.collapsed {
+  width: 64px; }
+  .primary-menu.collapsed .school-card .school-card__thumb {
+    width: 64px; }
+  .primary-menu.collapsed .school-card .school-card__location {
+    opacity: 0;
+    margin-right: 64px; }
+  .primary-menu.collapsed .school-card .school-card__name {
+    opacity: 0;
+    margin-right: 64px; }
+  .primary-menu.collapsed .primary-nav {
+    opacity: 0;
+    margin-right: 64px; }
+  .primary-menu.collapsed .collapsed-primary-nav {
+    left: 0; }
+    .primary-menu.collapsed .collapsed-primary-nav > ul > li {
+      opacity: 1;
+      margin-top: 0; }
 
 /*------------------------------------------------------------------------
   Main Header
@@ -179,8 +322,8 @@ svg {
       margin-left: -9px;
       border-radius: 2px;
       top: 50%;
-      -webkit-transition: all 0.15s ease-in-out;
-      transition: all 0.15s ease-in-out; }
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .main-header__menu-toggle .bar-1 {
       top: 50%;
       margin-top: -7px; }
@@ -197,8 +340,8 @@ svg {
       margin-top: -12px;
       width: 24px;
       height: 24px;
-      -webkit-transition: all 0.15s ease-in-out;
-      transition: all 0.15s ease-in-out; }
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .main-header__menu-toggle .app-icon--left {
       left: 7px;
       -webkit-transform: rotateZ(180deg);
@@ -264,24 +407,23 @@ svg {
     box-sizing: border-box;
     width: 64px;
     height: 64px;
-    padding: 16px;
-    display: block; }
+    display: block;
+    color: #8EA6BA; }
     .main-header .main-header__sign-out:hover,
     .main-header .nav-settings__toggle:hover {
       background: #EAEFF5; }
     .main-header .main-header__sign-out .app-icon,
     .main-header .nav-settings__toggle .app-icon {
-      width: 32px;
-      height: 32px; }
+      width: 64px;
+      height: 64px; }
   .main-header .nav-settings__toggle {
     position: relative;
     overflow: hidden;
-    color: #8EA6BA;
-    -webkit-transition: color 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out; }
+    -webkit-transition: color 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+    transition: color 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .nav-settings__toggle .app-icon {
-      -webkit-transition: all 0.15s ease-in-out;
-      transition: all 0.15s ease-in-out; }
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .nav-settings__toggle .nav-settings__caret {
       opacity: 0;
       width: 16px;
@@ -296,8 +438,8 @@ svg {
       margin-left: -8px;
       box-sizing: border-box;
       bottom: -16px;
-      -webkit-transition: all 0.15s ease-in-out;
-      transition: all 0.15s ease-in-out; }
+      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .nav-settings__toggle.active {
       overflow: visible;
       background: #EAEFF5;
@@ -321,8 +463,8 @@ svg {
     border-left: 1px solid #EAEFF5;
     border-top: none;
     right: 0;
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out; }
+    -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+    transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
     .main-header .nav-settings__flyout .temp-icon {
       border: 1px solid #8EA6BA;
       width: 48px;
@@ -346,15 +488,15 @@ svg {
       display: block;
       opacity: 0;
       margin-top: 0;
-      -webkit-transition: opacity 0.15s ease-in-out;
-      transition: opacity 0.15s ease-in-out; }
+      -webkit-transition: opacity 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+      transition: opacity 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
       .main-header .nav-settings__flyout a:hover {
         color: #3FA9F5; }
         .main-header .nav-settings__flyout a:hover .temp-icon {
           border: 1px solid #3FA9F5; }
       .main-header .nav-settings__flyout a .temp-icon {
-        -webkit-transition: margin-top 0.15s ease-in-out;
-        transition: margin-top 0.15s ease-in-out; }
+        -webkit-transition: margin-top 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+        transition: margin-top 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
       .main-header .nav-settings__flyout a:nth-child(1) {
         -webkit-transition-delay: 0.04s;
                 transition-delay: 0.04s; }
