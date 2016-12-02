@@ -184,10 +184,21 @@ p{
       }
     }
     a{
+      position: relative;
       color: $aside-medium-white;
       display: block;
       line-height: $grid*2;
-      padding: $grid*1.5 $grid*3;
+      padding: $grid*1.5 $grid*3 $grid*1.5 $grid*7;
+      .app-icon{
+        position: absolute;
+        top: 50%;
+        left: $grid*3;
+        margin-top: -12px;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+      }
       &:hover{
         background: $app-blue-darker;
       }
@@ -197,6 +208,7 @@ p{
     }
     .primary-nav__child-menu-label{
       @extend .label-on-dark;
+      position: relative;
       padding: $grid*3 $grid*3 $grid*1 $grid*3;
     }
     .primary-nav__child-menu{
@@ -542,12 +554,13 @@ svg{
       border-top: none;
       right: 0;
       transition: all 0.15s $curved-transition;
-      .temp-icon{
-        border: 1px solid $blue-gray;
-        width: $grid*6;
-        height: $grid*6;
-        border-radius: $grid*6;
-        margin: 0 auto $grid;
+      .app-icon{
+        color: $brand-primary;
+        display: block;
+        padding: $grid*1.5 $grid 0 $grid;
+        width: $grid*7;
+        height: $grid*7;
+        margin: 0 auto;
       }
       a{
         border-right: 1px solid $divider-on-white;
@@ -568,8 +581,8 @@ svg{
         margin-top: 0;
         &:hover{
           color: $brand-primary;
-          .temp-icon{
-            border: 1px solid $brand-primary;
+          .app-icon{
+            color: $brand-secondary;
           }
           //background: $lightest-gray;
         }

@@ -180,15 +180,26 @@ p {
         margin: 0;
         padding: 0; }
     .primary-menu .primary-nav a {
+      position: relative;
       color: #AFC2D0;
       display: block;
       line-height: 16px;
-      padding: 12px 24px; }
+      padding: 12px 24px 12px 56px; }
+      .primary-menu .primary-nav a .app-icon {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        margin-top: -12px;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle; }
       .primary-menu .primary-nav a:hover {
         background: #182638; }
     .primary-menu .primary-nav li {
       border-bottom: 1px solid #314760; }
     .primary-menu .primary-nav .primary-nav__child-menu-label {
+      position: relative;
       padding: 24px 24px 8px 24px; }
     .primary-menu .primary-nav .primary-nav__child-menu {
       padding-bottom: 16px; }
@@ -484,12 +495,13 @@ svg {
     right: 0;
     -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
     transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
-    .main-header .nav-settings__flyout .temp-icon {
-      border: 1px solid #8EA6BA;
-      width: 48px;
-      height: 48px;
-      border-radius: 48px;
-      margin: 0 auto 8px; }
+    .main-header .nav-settings__flyout .app-icon {
+      color: #3FA9F5;
+      display: block;
+      padding: 12px 8px 0 8px;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto; }
     .main-header .nav-settings__flyout a {
       border-right: 1px solid #EAEFF5;
       border-bottom: 1px solid #EAEFF5;
@@ -511,8 +523,8 @@ svg {
       transition: opacity 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
       .main-header .nav-settings__flyout a:hover {
         color: #3FA9F5; }
-        .main-header .nav-settings__flyout a:hover .temp-icon {
-          border: 1px solid #3FA9F5; }
+        .main-header .nav-settings__flyout a:hover .app-icon {
+          color: #7AC943; }
       .main-header .nav-settings__flyout a .temp-icon {
         -webkit-transition: margin-top 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
         transition: margin-top 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
