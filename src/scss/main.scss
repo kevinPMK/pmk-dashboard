@@ -14,13 +14,15 @@ Version: 1.0.0
 @import "config";
 
 /* Build Mixins */
-@import "mixins/include-media";
+@import "00_plugins/include-media";
 
-/* Build Helpers */
+/* Build Generic */
 
-/* Build Modules */
+/* Build Elements */
 
-/* Build Layout */
+/* Build Components */
+@import "03_components/c-main-header";
+@import "03_components/c-primary-menu";
 
 /* Build Shame */
 @import "shame";

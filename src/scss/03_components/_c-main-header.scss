@@ -1,0 +1,344 @@
+/*---------------------------------------------------------------------------
+
+
+Main Header
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Main Header
+------------------------------------------------------------------------*/
+
+.main-header{
+  height: $grid*8;
+  border-bottom: 1px solid $divider-on-white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 200px;
+  display: flex;
+  background: #fff;
+  z-index: 10;
+}
+
+  .main-header__menu-toggle{
+    width: $grid*8;
+    height: $grid*8;
+    display: block;
+    border-right: 1px solid $divider-on-white;
+    position: relative;
+    overflow: hidden;
+    &:hover{
+      background: $divider-on-white;
+    }
+
+    /* CREATE MENU ICON */
+    .bar{
+      width: 24px;
+      height: 2px;
+      background: $blue-gray;
+      position: absolute;
+      left: 50%;
+      margin-left: -9px;
+      border-radius: 2px;
+      top: 50%;
+      transition: all 0.15s $curved-transition;
+    }
+    .bar-1{
+      top: 50%;
+      margin-top: -7px;
+    }
+    .bar-2{
+      top: 50%;
+      margin-top: -1px;
+      width: 20px;
+      margin-left: -5px;
+    }
+    .bar-3{
+      margin-top: 5px;
+    }
+    .app-icon{
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      width: 24px;
+      height: 24px;
+      transition: all 0.15s $curved-transition;
+    }
+    .app-icon--left{
+      left: 7px;
+      transform: rotateZ(180deg);
+    }
+    .app-icon--right{
+      right: -20px
+    }
+    &.active{
+      .bar{
+        margin-left: -15px;
+      }
+      .bar-2{
+        margin-left: -15px;
+      }
+      .app-icon--left{
+        left: -20px;
+      }
+      .app-icon--right{
+        right: 7px;
+      }
+    }
+  }
+
+  .main-header__logo{
+    display: block;
+    padding-left: $grid*3;
+    padding-right: $grid*3;
+    svg{
+      width: 90px;
+      height: $grid*8;
+      overflow: hidden;
+    }
+  }
+
+  .main-header--left{
+    display: flex;
+  }
+
+  .main-header--right{
+    display: flex;
+    margin-left: auto;
+  }
+
+  .main-header__btn{
+    border-left: 1px solid $divider-on-white;
+    box-sizing: border-box;
+    width: $grid*8;
+    height: $grid*8;
+    display: block;
+    color: $blue-gray;
+    &:hover{
+      background: $divider-on-white;
+    }
+    .app-icon{
+      width: $grid*8;
+      height: $grid*8;
+    }
+  }
+
+//end .main-header
+
+
+/*------------------------------------------------------------------------
+  Profile Card
+------------------------------------------------------------------------*/
+
+.profile-mini-card{
+  padding: $grid $grid*2;
+  display: flex;
+  align-items: center;
+}
+
+  .profile-mini-card__info{
+    padding-right: $grid*2;
+    text-align: right;
+  }
+
+    .profile-mini-card__name{
+      color: $medium-blue;
+      display: block;
+    }
+
+    .profile-mini-card__title{
+      line-height: $grid;
+      font-size: 0.714em;
+      font-family: $secondary-font;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: $medium-blue;
+      opacity: 0.55;
+      display: block;
+    }
+
+  //end .profile-mini-card__info
+
+  .profile-mini-card__thumb{
+    width: $grid*6;
+    height: $grid*6;
+    border-radius: $grid*6;
+  }
+
+//end .profile-mini-card
+
+
+
+/*------------------------------------------------------------------------
+  Nav Settings Toggle
+------------------------------------------------------------------------*/
+
+
+.nav-settings__toggle{
+  position: relative;
+  overflow: hidden;
+  transition: color 0.15s $curved-transition;
+  .app-icon{
+    transition: all 0.15s $curved-transition;
+  }
+  .nav-settings__caret{
+    opacity: 0;
+    width: $grid*2;
+    height: $grid*2;
+    border-left: 1px solid $divider-on-white;
+    border-top: 1px solid $divider-on-white;
+    background: #fff;
+    transform: rotateZ(45deg);
+    position: absolute;
+    left: 50%;
+    margin-left: -$grid;
+    box-sizing: border-box;
+    bottom: -$grid*2;
+    transition: all 0.15s $curved-transition;
+    transition-delay: 0.06s;
+  }
+  &.active{
+    overflow: visible;
+    background: $divider-on-white;
+    color: $brand-primary;
+    .nav-settings__caret{
+      opacity: 1;
+      bottom: -$grid;
+    }
+    .app-icon{
+      transform: rotateZ(45deg);
+    }
+  }
+}
+
+
+/*------------------------------------------------------------------------
+  Nav Settings Flyout
+------------------------------------------------------------------------*/
+
+.nav-settings{
+  position: relative;
+}
+  .nav-settings__flyout{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: $grid*8 + 1;
+    background: #fff;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+    width: $grid*36;
+    border-left: 1px solid $divider-on-white;
+    border-top: none;
+    right: 0;
+    transition: all 0.15s $curved-transition;
+    .app-icon{
+      color: $brand-primary;
+      display: block;
+      padding: $grid*1.5 $grid 0 $grid;
+      width: $grid*7;
+      height: $grid*7;
+      margin: 0 auto;
+    }
+    a{
+      border-right: 1px solid $divider-on-white;
+      border-bottom: 1px solid $divider-on-white;
+      text-align: center;
+      color: $blue-gray;
+      font-family: $secondary-font;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      font-size: 0.714em;
+      float: left;
+      box-sizing: border-box;
+      width: $grid*12;
+      height: $grid*12;
+      display: block;
+      opacity: 0;
+      margin-top: 0;
+      &:hover{
+        color: $brand-primary;
+        .app-icon{
+          color: $brand-secondary;
+        }
+        //background: $lightest-gray;
+      }
+      transition: opacity 0.15s $curved-transition;
+      .temp-icon{
+        transition: margin-top 0.15s $curved-transition;
+      }
+      &:nth-child(1){
+        transition-delay: 0.04s;
+        .app-icon{
+          transition-delay: 0.04s;
+        }
+      }
+      &:nth-child(2){
+        transition-delay: 0.02s;
+        .app-icon{
+          transition-delay: 0.02s;
+        }
+      }
+      &:nth-child(3){
+        transition-delay: 0.00s;
+        .app-icon{
+          transition-delay: 0.00s;
+        }
+      }
+      &:nth-child(4){
+        transition-delay: 0.04s;
+        .app-icon{
+          transition-delay: 0.04s;
+        }
+      }
+      &:nth-child(5){
+        transition-delay: 0.02s;
+        .app-icon{
+          transition-delay: 0.02s;
+        }
+      }
+      &:nth-child(6){
+        transition-delay: 0.02s;
+        .app-icon{
+          transition-delay: 0.02s;
+        }
+      }
+      &:nth-child(7){
+        transition-delay: 0.04s;
+        .app-icon{
+          transition-delay: 0.04s;
+        }
+      }
+      &:nth-child(8){
+        transition-delay: 0.04s;
+        .app-icon{
+          transition-delay: 0.04s;
+        }
+      }
+      &:nth-child(9){
+        transition-delay: 0.04s;
+        .app-icon{
+          transition-delay: 0.04s;
+        }
+      }
+    }
+    &.active{
+      height: $grid*36;
+      opacity: 1;
+      a{
+        opacity: 1;
+        .temp-icon{
+          margin-top: $grid*1.5;
+        }
+      }
+    }
+  }
+//end .nav-settings

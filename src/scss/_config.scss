@@ -8,9 +8,10 @@ Version: 1.0.0
 
 ---------------------------------------------------------------------------*/
 
-/* --------------------------------------
-	Layout
----------------------------------------*/
+
+/*---------------------------------------------------------------------
+  Layout
+---------------------------------------------------------------------*/
 
 /* Queries, Built by http://include-media.com/#features */
 $breakpoints: (
@@ -21,23 +22,56 @@ $breakpoints: (
 );
 
 $page-max-width: 1320px;
+$grid: 8px;
 
-$grid: 12px;
 
 
-/* --------------------------------------
-	Fonts
+/*---------------------------------------------------------------------
+  Colors
+---------------------------------------------------------------------*/
 
-  font-family:'Cooper BT W00';
-  font-family:'Posterama Text W01';
-  font-family:'Proxima Nova W01';
+$brand-primary: #3FA9F5;
+$brand-primary-focus: lighten($brand-primary, 10%);
+$brand-secondary: #7AC943;
+$brand-secondary-focus: lighten($brand-secondary, 10%);
+$brand-tertiary: #EFAF1E;
+$brand-tertiary-focus: lighten($brand-tertiary, 10%);
 
----------------------------------------*/
+$app-blue-light: #2C4059;
+$app-blue-dark: #1E2E43;
+$app-blue-darker: #182638;
+$app-blue-darkest: darken(#182638, 5%);
+$aside-light-white: #D6DFE5;
+$aside-label-white: #A2B9CB;
+$aside-medium-white: #AFC2D0;
+$aside-divider-blue: #314760;
+$medium-blue: #4C7691;
+$lightest-gray: #F2F6F9;
+$divider-on-white: #EAEFF5;
+$blue-gray: #8EA6BA;
 
-$heading-font: 'Cooper BT W00', serif;
-$copy-font: 'Posterama Text W01', sans-serif;
-$meta-font: 'Proxima Nova W01', sans-serif;
 
-$copy-color: #858FA9;
-$focus-color: #6d599b;
-$focus-color-dark: #34283c;
+
+/*---------------------------------------------------------------------
+  Type
+---------------------------------------------------------------------*/
+
+$primary-font: "sofia-pro", sans-serif;
+//Light: 300
+//Regular: 400
+//Medium: 500
+//Semi Bold: 600
+//Bold: 700
+
+$secondary-font: "proxima-nova", sans-serif;
+//Thin: 100
+//Light: 300
+//Medium: 500
+
+
+
+/*---------------------------------------------------------------------
+  Transitions
+---------------------------------------------------------------------*/
+
+$curved-transition: cubic-bezier(.34,.61,.59,1.11);
