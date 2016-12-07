@@ -24,11 +24,16 @@ $breakpoints: (
 $page-max-width: 1320px;
 $grid: 8px;
 
+$header-height: $grid*8;
+$menu-width: $grid*25;
+$sidebar-width: $grid*34;
 
 
 /*---------------------------------------------------------------------
   Colors
 ---------------------------------------------------------------------*/
+
+$body-bg-color: #e9ecf3;
 
 $brand-primary: #3FA9F5;
 $brand-primary-focus: lighten($brand-primary, 10%);
@@ -36,6 +41,13 @@ $brand-secondary: #7AC943;
 $brand-secondary-focus: lighten($brand-secondary, 10%);
 $brand-tertiary: #EFAF1E;
 $brand-tertiary-focus: lighten($brand-tertiary, 10%);
+
+$dash-dark-gray: #748399;
+$dash-medium-gray: #d8deea;
+$dash-gray-blue: #6b819a;
+$dash-divider-gray: #e2e6ea;
+
+$widget-header-gray: #666c73;
 
 $app-blue-light: #2C4059;
 $app-blue-dark: #1E2E43;

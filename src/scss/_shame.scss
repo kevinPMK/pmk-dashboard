@@ -11,48 +11,6 @@ Version: 1.0.0
 
 
 
-/*------------------------------------------------------------------------
-  Globals
-------------------------------------------------------------------------*/
-
-html{
-  font-family: $primary-font;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-a{
-  cursor: pointer;
-  text-decoration: none;
-}
-
-ul{
-  margin: 0;
-  padding: 0;
-}
-
-li{
-  margin: 0;
-  padding: 0;
-}
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; /* 1 */
-}
-
-svg{
-  vertical-align: top;
-}
-
-
 
 
 /*------------------------------------------------------------------------
@@ -82,7 +40,9 @@ p{
 
 .page-shift-wrap{
   transition: all 0.15s $curved-transition;
-  padding-left: $grid*25;
+  padding-left: $menu-width;
+  padding-right: $sidebar-width;
+  padding-top: $header-height;
   &.menu-collapsed{
     padding-left: $grid*8;
   }
@@ -96,61 +56,6 @@ p{
 }
 
 
-
-/*------------------------------------------------------------------------
-  Sidebar
-------------------------------------------------------------------------*/
-
-.side-content{
-  overflow-y: auto;
-  a{
-    color: $brand-secondary;
-  }
-  font-size: 0.857rem;
-  width: $grid*34;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  padding-top: $grid*8;
-  background: linear-gradient( 20deg, $app-blue-dark, $app-blue-light );
-  p{
-    color: $medium-blue;
-    margin-top: $grid*4;
-    margin-bottom: 0;
-  }
-  >.inner{
-  }
-  .side-widget{
-    border-bottom: 1px solid $aside-divider-blue;
-    padding: $grid*4;
-  }
-    .side-widget__label{
-      @extend .label-on-dark;
-      margin-top: 0;
-      margin-bottom: $grid*4;
-    }
-    .side-widget__cta{
-      margin-top: $grid*4;
-      line-height: $grid;
-      color: $brand-primary;
-      display: inline-block;
-      .app-icon{
-        width: $grid*3;
-        height: $grid*3;
-        margin-top: -6px;
-        margin-left: 2px;
-        transition: all 0.15s $curved-transition;
-      }
-      &:hover{
-        color: $brand-primary-focus;
-        .app-icon{
-          margin-left: 8px;
-        }
-      }
-    }
-  //end .side-widget
-}
 
 /*------------------------------------------------------------------------
   Dismissal Progress Widget

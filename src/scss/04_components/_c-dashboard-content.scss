@@ -1,0 +1,82 @@
+/*---------------------------------------------------------------------------
+
+
+Primary Menu
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Dashboard Layout
+------------------------------------------------------------------------*/
+
+.main-column{
+  padding: $grid*4;
+}
+  .main-column__header{
+    border-bottom: 1px solid $dash-medium-gray;
+    display: flex;
+    align-items: center;
+    h1{
+      font-size: 2em;
+      margin-bottom: $grid*2;
+      margin-top: $grid;
+      color: $dash-dark-gray;
+      font-weight: 600;
+    }
+  }
+    .main-column__controls{
+      margin-left: auto;
+      select{ //refactor once reused
+        font-size: 0.857em;
+        cursor: pointer;
+        background: $body-bg-color;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid $dash-medium-gray;
+        overflow: hidden;
+        text-overflow: elipsis;
+        padding: 0 $grid;
+        height: $grid*4;
+        width: $grid*16;
+        border-radius: 3px;
+        color: $dash-gray-blue;
+        font-family: $secondary-font;
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+    }
+  .main-column__content{
+    padding-top: $grid*2;
+    padding-bottom: $grid*2;
+  }
+  //end .main-column__content
+//end .main-column
+
+
+/*------------------------------------------------------------------------
+  Dashboard Global Widget
+------------------------------------------------------------------------*/
+
+.main-column__widget{
+  margin-top: $grid*2;
+  min-height: 60px; //temp
+  background: #fff;
+  border-radius: $grid;
+  border: 1px solid $dash-divider-gray;
+}
+  .main-column__widget-header{
+    padding: $grid*2 $grid*3;
+    border-bottom: 1px solid $dash-divider-gray;
+    h3{
+      font-family: $secondary-font;
+      margin: 0;
+      line-height: $grid*3;
+      color: $widget-header-gray;
+      font-weight: 300;
+    }
+  }

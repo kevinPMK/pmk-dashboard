@@ -7,7 +7,7 @@ Version: 1.0.0
 
 
 ---------------------------------------------------------------------------*/
-/* Define Theme Variables */
+/*--  Define Theme Variables --*/
 /*---------------------------------------------------------------------------
 
 
@@ -30,10 +30,133 @@ Version: 1.0.0
 /*---------------------------------------------------------------------
   Transitions
 ---------------------------------------------------------------------*/
-/* Build Mixins */
-/* Build Generic */
-/* Build Elements */
+/*--  Build Tools: mixins and helper functions --*/
+/*---------------------------------------------------------------------------
+
+
+Elements
+Constructor File
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*--  Build Generic: ground zero styles, reset styles such as normalize.css --*/
+/*---------------------------------------------------------------------------
+
+
+Elements
+Constructor File
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------
+
+
+Globals
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Globals
+------------------------------------------------------------------------*/
+body,
+html {
+  padding: 0px;
+  margin: 0px; }
+
+body {
+  background: #e9ecf3; }
+
+html {
+  font-family: "sofia-pro", sans-serif;
+  font-size: 14px;
+  font-weight: 300; }
+
+a {
+  cursor: pointer;
+  text-decoration: none; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  margin: 0;
+  padding: 0; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+  /* 1 */ }
+
+svg {
+  vertical-align: top; }
+
+/* Build Elements: headings, lists, tables, etc */
+/*---------------------------------------------------------------------------
+
+
+Elements
+Constructor File
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/* Build Objects: e.g. .button, .list-item, grid systems */
+/*---------------------------------------------------------------------------
+
+
+Objects
+Constructor File
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Grid
+------------------------------------------------------------------------*/
+.g-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -8px;
+  margin-right: -8px; }
+
+.g-col, .g-col-sm, .g-col-lg {
+  box-sizing: border-box;
+  padding: 8px; }
+
+.g-col-sm {
+  width: 33.3333%; }
+
+.g-col-lg {
+  width: 66.6666%; }
+
 /* Build Components */
+/*---------------------------------------------------------------------------
+
+
+Components
+Constructor File
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------
 
 
@@ -552,6 +675,138 @@ Version: 1.0.0
       opacity: 1;
       margin-top: 0; }
 
+/*---------------------------------------------------------------------------
+
+
+Global Sidebar
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Sidebar
+------------------------------------------------------------------------*/
+.main-sidebar {
+  overflow-y: auto;
+  font-size: 0.857rem;
+  width: 272px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  padding-top: 64px;
+  background: -webkit-linear-gradient(70deg, #1E2E43, #2C4059);
+  background: linear-gradient(20deg, #1E2E43, #2C4059); }
+
+.main-sidebar__widget {
+  border-bottom: 1px solid #314760;
+  padding: 32px; }
+
+.main-sidebar__widget-label {
+  margin-top: 0;
+  margin-bottom: 32px; }
+
+.main-sidebar__widget-content a {
+  color: #7AC943; }
+
+.main-sidebar__widget-content p {
+  color: #4C7691;
+  margin-top: 32px;
+  margin-bottom: 0; }
+
+.main-sidebar__widget-cta {
+  margin-top: 32px;
+  line-height: 8px;
+  color: #3FA9F5;
+  display: inline-block; }
+  .main-sidebar__widget-cta .app-icon {
+    width: 24px;
+    height: 24px;
+    margin-top: -6px;
+    margin-left: 2px;
+    -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+    transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
+  .main-sidebar__widget-cta:hover {
+    color: #6fbff8; }
+    .main-sidebar__widget-cta:hover .app-icon {
+      margin-left: 8px; }
+
+/*---------------------------------------------------------------------------
+
+
+Primary Menu
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Dashboard Layout
+------------------------------------------------------------------------*/
+.main-column {
+  padding: 32px; }
+
+.main-column__header {
+  border-bottom: 1px solid #d8deea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .main-column__header h1 {
+    font-size: 2em;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    color: #748399;
+    font-weight: 600; }
+
+.main-column__controls {
+  margin-left: auto; }
+  .main-column__controls select {
+    font-size: 0.857em;
+    cursor: pointer;
+    background: #e9ecf3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    border: 1px solid #d8deea;
+    overflow: hidden;
+    text-overflow: elipsis;
+    padding: 0 8px;
+    height: 32px;
+    width: 128px;
+    border-radius: 3px;
+    color: #6b819a;
+    font-family: "proxima-nova", sans-serif;
+    text-transform: uppercase;
+    font-weight: 300; }
+
+.main-column__content {
+  padding-top: 16px;
+  padding-bottom: 16px; }
+
+/*------------------------------------------------------------------------
+  Dashboard Global Widget
+------------------------------------------------------------------------*/
+.main-column__widget {
+  margin-top: 16px;
+  min-height: 60px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea; }
+
+.main-column__widget-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e6ea; }
+  .main-column__widget-header h3 {
+    font-family: "proxima-nova", sans-serif;
+    margin: 0;
+    line-height: 24px;
+    color: #666c73;
+    font-weight: 300; }
+
 /* Build Shame */
 /*---------------------------------------------------------------------------
 
@@ -563,47 +818,12 @@ Version: 1.0.0
 
 ---------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
-  Globals
-------------------------------------------------------------------------*/
-html {
-  font-family: "sofia-pro", sans-serif;
-  font-size: 14px;
-  font-weight: 300; }
-
-a {
-  cursor: pointer;
-  text-decoration: none; }
-
-ul {
-  margin: 0;
-  padding: 0; }
-
-li {
-  margin: 0;
-  padding: 0; }
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
-  /* 1 */ }
-
-svg {
-  vertical-align: top; }
-
-/*------------------------------------------------------------------------
   Typography
 ------------------------------------------------------------------------*/
 p {
   line-height: 1.68em; }
 
-.label-on-dark, .primary-menu .primary-nav .primary-nav__child-menu-label, .side-content .side-widget__label {
+.label-on-dark, .primary-menu .primary-nav .primary-nav__child-menu-label, .main-sidebar__widget-label {
   line-height: 8px;
   font-size: 0.786rem;
   font-family: "proxima-nova", sans-serif;
@@ -619,7 +839,9 @@ p {
 .page-shift-wrap {
   -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
   transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
-  padding-left: 200px; }
+  padding-left: 200px;
+  padding-right: 272px;
+  padding-top: 64px; }
   .page-shift-wrap.menu-collapsed {
     padding-left: 64px; }
 
@@ -628,49 +850,6 @@ p {
   transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
   .main-header.menu-collapsed {
     left: 64px; }
-
-/*------------------------------------------------------------------------
-  Sidebar
-------------------------------------------------------------------------*/
-.side-content {
-  overflow-y: auto;
-  font-size: 0.857rem;
-  width: 272px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  padding-top: 64px;
-  background: -webkit-linear-gradient(70deg, #1E2E43, #2C4059);
-  background: linear-gradient(20deg, #1E2E43, #2C4059); }
-  .side-content a {
-    color: #7AC943; }
-  .side-content p {
-    color: #4C7691;
-    margin-top: 32px;
-    margin-bottom: 0; }
-  .side-content .side-widget {
-    border-bottom: 1px solid #314760;
-    padding: 32px; }
-  .side-content .side-widget__label {
-    margin-top: 0;
-    margin-bottom: 32px; }
-  .side-content .side-widget__cta {
-    margin-top: 32px;
-    line-height: 8px;
-    color: #3FA9F5;
-    display: inline-block; }
-    .side-content .side-widget__cta .app-icon {
-      width: 24px;
-      height: 24px;
-      margin-top: -6px;
-      margin-left: 2px;
-      -webkit-transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
-      transition: all 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11); }
-    .side-content .side-widget__cta:hover {
-      color: #6fbff8; }
-      .side-content .side-widget__cta:hover .app-icon {
-        margin-left: 8px; }
 
 /*------------------------------------------------------------------------
   Dismissal Progress Widget

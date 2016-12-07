@@ -10,19 +10,23 @@ Version: 1.0.0
 
 
 
-/* Define Theme Variables */
+/*--  Define Theme Variables --*/
 @import "config";
 
-/* Build Mixins */
-@import "00_plugins/include-media";
+/*--  Build Tools: mixins and helper functions --*/
+@import "00_tools/tools";
 
-/* Build Generic */
+/*--  Build Generic: ground zero styles, reset styles such as normalize.css --*/
+@import "01_generic/generic";
 
-/* Build Elements */
+/* Build Elements: headings, lists, tables, etc */
+@import "02_elements/elements";
+
+/* Build Objects: e.g. .button, .list-item, grid systems */
+@import "03_objects/objects";
 
 /* Build Components */
-@import "03_components/c-main-header";
-@import "03_components/c-primary-menu";
+@import "04_components/components";
 
 /* Build Shame */
 @import "shame";

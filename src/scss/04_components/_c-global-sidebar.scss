@@ -1,0 +1,67 @@
+/*---------------------------------------------------------------------------
+
+
+Global Sidebar
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Sidebar
+------------------------------------------------------------------------*/
+
+.main-sidebar{
+  overflow-y: auto;
+  font-size: 0.857rem;
+  width: $sidebar-width;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  padding-top: $grid*8;
+  background: linear-gradient( 20deg, $app-blue-dark, $app-blue-light );
+}
+  .main-sidebar__widget{
+    border-bottom: 1px solid $aside-divider-blue;
+    padding: $grid*4;
+  }
+    .main-sidebar__widget-label{
+      @extend .label-on-dark;
+      margin-top: 0;
+      margin-bottom: $grid*4;
+    }
+    .main-sidebar__widget-content{
+      a{
+        color: $brand-secondary;
+      }
+      p{
+        color: $medium-blue;
+        margin-top: $grid*4;
+        margin-bottom: 0;
+      }
+    }
+    .main-sidebar__widget-cta{
+      margin-top: $grid*4;
+      line-height: $grid;
+      color: $brand-primary;
+      display: inline-block;
+      .app-icon{
+        width: $grid*3;
+        height: $grid*3;
+        margin-top: -6px;
+        margin-left: 2px;
+        transition: all 0.15s $curved-transition;
+      }
+      &:hover{
+        color: $brand-primary-focus;
+        .app-icon{
+          margin-left: 8px;
+        }
+      }
+    }
+  //end .main-sidebar__widget
+//end .main-sidebar

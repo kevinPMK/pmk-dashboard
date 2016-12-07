@@ -1,0 +1,63 @@
+/*---------------------------------------------------------------------------
+
+
+Globals
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Globals
+------------------------------------------------------------------------*/
+
+body,
+html{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background: $body-bg-color;
+}
+
+
+html{
+  font-family: $primary-font;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  margin: 0;
+  padding: 0;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+svg{
+  vertical-align: top;
+}

@@ -267,15 +267,51 @@
         </div>
       </div>
       <div class="page-shift-wrap js-page-shift-wrap">
-        <div class="main-content">
-        </div>
-        <aside class="side-content">
+        <main role="main" class="main-column">
+          <div class="main-column__header">
+            <h1>Dashboard</h1>
+            <div class="main-column__controls">
+              <select>
+                <option value="volvo">Today</option>
+                <option value="saab">Yesterday</option>
+                <option value="mercedes">Tomorrow</option>
+              </select>
+            </div>
+          </div>
+          <div class="main-column__content g">
+            <div class="g-row">
+              <div class="g-col-lg">
+                <div class="main-column__widget">
+                  <div class="main-column__widget-header">
+                    <h3>Recent Activity</h3>
+                    <button type="button" class="widget">View All Activity</button>
+                  </div>
+                  <div class="main-column__widget-content">
+                  </div>
+                  123
+                </div>
+                <div class="main-column__widget">
+                  123
+                </div>
+              </div>
+              <div class="g-col-sm">
+                <div class="main-column__widget">
+                  123
+                </div>
+                <div class="main-column__widget">
+                  123
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <aside class="main-sidebar">
           <div class="inner">
-            <div class="side-widget dismissal-progress-widget">
-              <h4 class="side-widget__label">
+            <div class="main-sidebar__widget dismissal-progress-widget">
+              <h4 class="main-sidebar__widget-label">
                 Dismissal Progress
               </h4>
-              <div class="side-widget__content">
+              <div class="main-sidebar__widget-content">
                 <div class="svg-donut-chart">
                   <svg id="svg" width="192" height="192" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <linearGradient id="linear" x1="100%" y1="3%" x2="0%" y2="97%">
@@ -297,20 +333,19 @@
                 <p>
                   Today there are <a href="#">418</a> kids needing to be dismissed. <a href="#">104</a> are still at school.
                 </p>
-                <a href="#" class="side-widget__cta">
-                  <span>View Progress Details</span>
-                  <svg class="app-icon">
-                    <use xlink:href="#svg-icon-rarrow-long"/>
-                  </svg>
-                </a>
               </div>
+              <a href="#" class="main-sidebar__widget-cta">
+                <span>View Progress Details</span>
+                <svg class="app-icon">
+                  <use xlink:href="#svg-icon-rarrow-long"/>
+                </svg>
+              </a>
             </div>
-            <div class="side-widget dismissal-progress-widget">
-              <h4 class="side-widget__label">
+            <div class="main-sidebar__widget dismissal-progress-widget">
+              <h4 class="main-sidebar__widget-label">
                 Dismissal Breakdown
               </h4>
-              <div class="side-widget__content">
-
+              <div class="main-sidebar__widget-content">
                 <div class="dismissal-breakdown-wrap">
                   <div class="dismissal-breakdown-card">
                     <div class="dismissal-breakdown-card__icon">
@@ -386,7 +421,7 @@
                   </div>
                 </div>
               </div>
-              <a href="#" class="side-widget__cta">
+              <a href="#" class="main-sidebar__widget-cta">
                 <span>View Breakdown</span>
                 <svg class="app-icon">
                   <use xlink:href="#svg-icon-rarrow-long"/>
