@@ -8,3 +8,22 @@ Version: 1.0.0
 
 
 ---------------------------------------------------------------------------*/
+
+
+
+select{
+  font-size: 0.857rem;
+  padding-right: $grid*5;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  text-overflow: elipsis;
+  padding: 0 $grid;
+  height: $grid*4;
+  line-height: $grid*4;
+  border-radius: 4px;
+  border: 1px solid $dash-medium-gray;
+  @extend .label-on-light;
+  background: url('../src/svg/down-caret.svg') right -2px no-repeat;
+}
