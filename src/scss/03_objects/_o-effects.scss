@@ -1,0 +1,63 @@
+/*---------------------------------------------------------------------------
+
+
+Effects
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Effects
+------------------------------------------------------------------------*/
+
+
+.mobile-page-darken{
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(33,33,33,0.65);
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s $curved-transition;
+  &.mobile-page-darken--block{
+    display: block;
+  }
+  &.mobile-page-darken--active{
+    opacity: 1;
+    display: block;
+  }
+}
+
+
+/*------------------------------------------------------------------------
+  Effects
+------------------------------------------------------------------------*/
+
+.desktop-darken-content{
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(33,33,33,0.65);
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s $curved-transition;
+  &.mobile-page-darken--block{
+    display: block;
+  }
+  &.mobile-page-darken--active{
+    opacity: 1;
+    display: block;
+  }
+}

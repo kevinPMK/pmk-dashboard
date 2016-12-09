@@ -65,3 +65,106 @@ Version: 1.0.0
     }
   //end .main-sidebar__widget
 //end .main-sidebar
+
+
+@include media('<lg') {
+  .main-sidebar{
+    transition: all 0.15s $curved-transition;
+    right: -$grid*34;
+  }
+}
+
+
+/*------------------------------------------------------------------------
+  Dismissal Progress Widget
+------------------------------------------------------------------------*/
+
+.dismissal-progress-widget{
+}
+
+  .dismissal-breakdown-wrap{
+    margin-top: $grid*4;
+  }
+
+  .dismissal-breakdown-card{
+    display: flex;
+    align-items: center;
+    padding-bottom: $grid;
+  }
+    .dismissal-breakdown-card__icon{
+      .app-icon{
+        width: $grid*4;
+        height: $grid*4;
+        margin-left: -6px;
+      }
+    }
+    .dismissal-breakdown-card__info{
+      padding-left: $grid*1;
+      box-sizing: border-box;
+      width: 100%;
+    }
+      .dismissal-breakdown-card__chart{
+        width: 100%;
+        height: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      //end .dismissal-breakdown-card__bar-chart
+      .dismissal-breakdown-card__label{
+        color: #4C7691;
+        line-height: 1;
+        margin-bottom: 6px;
+        font-weight: 500;
+        font-family: $secondary-font;
+        letter-spacing: 0.05em;
+      }
+        .dismissal-breakdown-card__chart__total{
+          width: 100%;
+          height: 5px;
+          border-radius: 5px;
+          background: rgba(0,0,0,0.2);
+          margin-top: -5px;
+        }
+          .dismissal-breakdown-card__label__percentage{
+            color: $aside-label-white;
+          }
+        //end .dismissal-breakdown-card__total
+        .dismissal-breakdown-card__chart__completed{
+          width: 0%;
+          height: 5px;
+          border-radius: 5px;
+          background: linear-gradient( to right, $brand-primary 0%, $brand-secondary 100%);
+        }
+      .dismissal-breakdown-card__chart{
+
+      }
+    //end .dismissal-breakdown-card__info
+  //end .dismissal-breakdown-card
+//end .dismissal-progress-breakdown-widget
+
+.dismissal-progress-widget{
+  .svg-donut-chart{
+    width: $grid*24;
+    height: $grid*24;
+  }
+    .svg-donut-chart__meta{
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+      .svg-donut-chart__count{
+        color: #A6B7C3;
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 400;
+      }
+      .svg-donut-chart__label{
+        color: $aside-label-white;
+        text-transform: uppercase;
+      }
+    //end .svg-donut-chart__meta
+  //end .svg-donut-chart
+}

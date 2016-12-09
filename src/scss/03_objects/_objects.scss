@@ -9,82 +9,10 @@ Version: 1.0.0
 
 ---------------------------------------------------------------------------*/
 
-
-/*------------------------------------------------------------------------
-  Labels
-------------------------------------------------------------------------*/
-
-
-.label-type-format{
-  font-size: 0.857rem;
-  font-family: $secondary-font;
-  font-weight: 500;
-  letter-spacing: 0.05rem;
-  text-transform: uppercase;
-}
-
-.label-on-dark{
-  @extend .label-type-format;
-  line-height: $grid;
-  display: block;
-  color: $medium-blue;
-}
-
-.label-on-light{
-  @extend .label-type-format;
-  color: $dash-label-gray;
-}
-
-
-/*------------------------------------------------------------------------
-  Grid
-------------------------------------------------------------------------*/
-
-.g{
-}
-  .g-row{
-      display: flex;
-      margin-left: -$grid;
-      margin-right: -$grid;
-  }
-    .g-col{
-      box-sizing: border-box;
-      padding: $grid;
-    }
-      .g-col-sm{
-        @extend .g-col;
-        width: 33.3333%;
-      }
-      .g-col-lg{
-        @extend .g-col;
-        width: 66.6666%;
-      }
-    //end .g-col
-  //end .g-row
-//end .g
-
-
-/*------------------------------------------------------------------------
-  Buttons
-------------------------------------------------------------------------*/
-
-.dash-light-button{
-  line-height: $grid*2;
-  background: #fff;
-  padding: $grid $grid*2;
-  border: 1px solid $dash-divider-gray;
-  border-radius: $grid*3;
-  @extend .label-on-light;
-  &:hover{
-    background: #eeeeee;
-    color: $brand-primary;
-  }
-}
-
-/*------------------------------------------------------------------------
-  SVG Bar Chart
-------------------------------------------------------------------------*/
-
-.svg-bar-chart{
-  
-}
+@import "o-grid";
+@import "o-buttons";
+@import "o-page-shift";
+@import "o-labels";
+@import "o-bar-chart";
+@import "o-donut-chart";
+@import "o-effects";

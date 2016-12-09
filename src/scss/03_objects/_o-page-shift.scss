@@ -1,0 +1,53 @@
+/*---------------------------------------------------------------------------
+
+
+Page Shift
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------
+  Page Shift Wrap - wraps everything except for primary nav
+------------------------------------------------------------------------*/
+
+
+.page-shift-wrap{
+  transition: all 0.15s $curved-transition;
+  padding-left: $menu-width;
+  padding-right: $sidebar-width;
+  padding-top: $header-height;
+}
+
+@include media('<lg') {
+  .page-shift-wrap{
+    padding-right: 0;
+  }
+}
+
+@include media('<sm') {
+  .page-shift-wrap{
+    padding-left: 0;
+  }
+}
+
+/*-- PAGE STATE CHANGES --*/
+
+@include media('<sm') {
+  .mobile-left-expanded{
+    .page-shift-wrap{
+      transform: translateX(200px);
+    }
+  }
+}
+
+
+@include media('>=sm') {
+  .desktop-left-collapsed{
+    .page-shift-wrap{
+      padding-left: $grid*8;
+    }
+  }
+}

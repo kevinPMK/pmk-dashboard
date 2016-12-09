@@ -24,8 +24,8 @@ Version: 1.0.0
   display: flex;
   background: #fff;
   z-index: 10;
+  transition: all 0.15s $curved-transition;
 }
-
   .main-header__menu-toggle{
     width: $grid*8;
     height: $grid*8;
@@ -36,7 +36,6 @@ Version: 1.0.0
     &:hover{
       background: $divider-on-white;
     }
-
     /* CREATE MENU ICON */
     .bar{
       width: 24px;
@@ -77,22 +76,7 @@ Version: 1.0.0
     .app-icon--right{
       right: -20px
     }
-    &.active{
-      .bar{
-        margin-left: -15px;
-      }
-      .bar-2{
-        margin-left: -15px;
-      }
-      .app-icon--left{
-        left: -20px;
-      }
-      .app-icon--right{
-        right: 7px;
-      }
-    }
   }
-
   .main-header__logo{
     display: block;
     padding-left: $grid*3;
@@ -103,16 +87,13 @@ Version: 1.0.0
       overflow: hidden;
     }
   }
-
   .main-header--left{
     display: flex;
   }
-
   .main-header--right{
     display: flex;
     margin-left: auto;
   }
-
   .main-header__btn{
     border-left: 1px solid $divider-on-white;
     box-sizing: border-box;
@@ -128,8 +109,154 @@ Version: 1.0.0
       height: $grid*8;
     }
   }
-
+  .main-header__toggle-progress{
+    display: none;
+  }
 //end .main-header
+
+
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<lg') {
+  .main-header__toggle-progress{
+    display: block;
+  }
+}
+
+
+@include media('<sm') {
+  .main-header{
+    left: 0;
+  }
+    .main-header__menu-toggle{
+      display: none;
+    }
+    .main-header__logo{
+      border-left: 1px solid $divider-on-white;
+    }
+  //end .main-header
+  .main-header__mobile-menu-toggle{
+    position: relative;
+    display: block;
+    width: $grid*8;
+    height: $grid*8;
+    overflow: hidden;
+    transition: all 0.15s $curved-transition;
+    .bar{
+      width: 24px;
+      height: 2px;
+      background: $blue-gray;
+      position: absolute;
+      left: 50%;
+      margin-left: -12px;
+      border-radius: 2px;
+      top: 50%;
+      transition: all 0.15s $curved-transition;
+    }
+    .bar-1{
+      top: 50%;
+      margin-top: -7px;
+    }
+    .bar-2{
+      margin-top: -1px;
+    }
+    .bar-3{
+      margin-top: 5px;
+      opacity: 1;
+    }
+  }
+  //end .main-header__mobile-menu-toggle
+}
+
+
+/*-- PAGE STATE CHANGES --*/
+
+@include media('<sm') {
+  .mobile-left-expanded{
+    .main-header{
+      transform: translateX($menu-width);
+    }
+      .main-header__mobile-menu-toggle{
+        opacity: 0;
+      }
+    //end .main-header
+  }
+}
+
+@include media('>=sm') {
+  .desktop-left-collapsed{
+    .main-header{
+      left: $grid*8;
+    }
+    .main-header__menu-toggle{
+      .bar{
+        margin-left: -15px;
+      }
+      .bar-2{
+        margin-left: -15px;
+      }
+      .app-icon--left{
+        left: -20px;
+      }
+      .app-icon--right{
+        right: 7px;
+      }
+    }
+  }
+}
+
+
+/*------------------------------------------------------------------------
+  Mobile Menu Close
+------------------------------------------------------------------------*/
+
+.mobile-menu-close{
+  position: fixed;
+  top: 0;
+  left: -$grid*8;
+  width: $grid*8;
+  height: $grid*8;
+  z-index: 20;
+  transition: all 0.15s $curved-transition 0.06s;
+  .bar{
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    margin-top: -1px;
+    margin-left: -10px;
+    top: 50%;
+    left: 50%;
+  }
+  .bar-1{
+    transform: rotateZ(45deg);
+  }
+  .bar-2{
+    transform: rotateZ(-45deg);
+  }
+  .circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$grid*2;
+    margin-left: -$grid*2;
+    box-sizing: border-box;
+    width: $grid*4;
+    height: $grid*4;
+    border-radius: $grid*4;
+    border: 2px solid #fff;
+  }
+}
+
+/*-- PAGE STATE CHANGES --*/
+
+@include media('<sm') {
+  .mobile-left-expanded{
+    .mobile-menu-close{
+      left: $menu-width;
+    }
+  }
+}
 
 
 /*------------------------------------------------------------------------
@@ -150,6 +277,7 @@ Version: 1.0.0
     .profile-mini-card__name{
       color: $medium-blue;
       display: block;
+      line-height: 1;
     }
 
     .profile-mini-card__title{
@@ -162,6 +290,7 @@ Version: 1.0.0
       color: $medium-blue;
       opacity: 0.55;
       display: block;
+      padding-top: 3px;
     }
 
   //end .profile-mini-card__info
@@ -188,6 +317,7 @@ Version: 1.0.0
   .app-icon{
     transition: all 0.15s $curved-transition;
   }
+}
   .nav-settings__caret{
     opacity: 0;
     width: $grid*2;
@@ -204,18 +334,25 @@ Version: 1.0.0
     transition: all 0.15s $curved-transition;
     transition-delay: 0.06s;
   }
-  &.active{
+//end .nav-settings__toggle
+
+
+/*-- PAGE STATE CHANGES --*/
+
+.settings-expanded{
+  .nav-settings__toggle{
     overflow: visible;
     background: $divider-on-white;
     color: $brand-primary;
-    .nav-settings__caret{
-      opacity: 1;
-      bottom: -$grid;
-    }
     .app-icon{
       transform: rotateZ(45deg);
     }
   }
+    .nav-settings__caret{
+      opacity: 1;
+      bottom: -$grid;
+    }
+  //end .nav-settings__toggle
 }
 
 
@@ -239,6 +376,7 @@ Version: 1.0.0
     border-top: none;
     right: 0;
     transition: all 0.15s $curved-transition;
+    z-index: 30;
     .app-icon{
       color: $brand-primary;
       display: block;
@@ -269,7 +407,6 @@ Version: 1.0.0
         .app-icon{
           color: $brand-secondary;
         }
-        //background: $lightest-gray;
       }
       transition: opacity 0.15s $curved-transition;
       .temp-icon{
@@ -330,15 +467,25 @@ Version: 1.0.0
         }
       }
     }
-    &.active{
-      height: $grid*36;
-      opacity: 1;
-      a{
-        opacity: 1;
-        .temp-icon{
-          margin-top: $grid*1.5;
-        }
-      }
-    }
+  }
+  .nav-settings__menu{
+    padding: $grid*2;
+    text-align: center;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
   }
 //end .nav-settings
+
+
+/*-- PAGE STATE CHANGES --*/
+
+.settings-expanded{
+  .nav-settings__flyout{
+    height: $grid*44;
+    opacity: 1;
+    a{
+      opacity: 1;
+    }
+  }
+}

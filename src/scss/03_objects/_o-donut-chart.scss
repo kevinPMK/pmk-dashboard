@@ -1,0 +1,38 @@
+/*---------------------------------------------------------------------------
+
+
+Donut Chart
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------
+  Donut Chart
+------------------------------------------------------------------------*/
+
+.svg-donut-chart{
+  margin: 0 auto;
+  position: relative;
+  svg{
+    transform: rotateZ(-90deg);
+    circle{
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.5s ease-in-out;
+      stroke-width: 8px;
+    }
+  }
+}
+  .svg-donut-chart__count{
+    line-height: 1;
+    font-weight: 400;
+  }
+    .svg-donut-chart__label{
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: $secondary-font;
+    }
+  //end .svg-donut-chart__count
+//end .svg-donut-chart

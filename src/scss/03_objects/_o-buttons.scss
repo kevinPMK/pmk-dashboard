@@ -1,0 +1,27 @@
+/*---------------------------------------------------------------------------
+
+
+Buttons
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------
+  Buttons
+------------------------------------------------------------------------*/
+
+.dash-light-button{
+  line-height: $grid*2;
+  background: #fff;
+  padding: ($grid - 1) $grid*2;
+  border: 1px solid $dash-divider-gray;
+  border-radius: $grid*3;
+  @extend .label-on-light;
+  &:hover{
+    background: #eeeeee;
+    color: $brand-primary;
+  }
+}

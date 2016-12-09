@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------
+
+
+Grid
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------
+  Grid
+------------------------------------------------------------------------*/
+
+.g{
+}
+  .g-row{
+      display: flex;
+      margin-left: -$grid;
+      margin-right: -$grid;
+  }
+    .g-col{
+      box-sizing: border-box;
+      padding: $grid;
+    }
+      .g-col-sm{
+        @extend .g-col;
+        flex: 1;
+      }
+      .g-col-lg{
+        @extend .g-col;
+        flex: 2;
+      }
+    //end .g-col
+  //end .g-row
+//end .g
+
+@include media('<md') {
+  .g-row{
+    margin: 0;
+    display: block;
+  }
+  .g-col-sm{
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .g-col-lg{
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
