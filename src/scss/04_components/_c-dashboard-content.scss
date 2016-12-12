@@ -16,6 +16,7 @@ Version: 1.0.0
 
 .main-column{
   padding: $grid*4;
+  background: $body-bg-color;
 }
   .main-column__header{
     border-bottom: 1px solid $dash-medium-gray;
@@ -44,6 +45,12 @@ Version: 1.0.0
   //end .main-column__content
 //end .main-column
 
+
+@include media('<sm') {
+  .main-column{
+    padding: $grid*2;
+  }
+}
 
 /*------------------------------------------------------------------------
   Dashboard Global Widget
@@ -142,6 +149,9 @@ Version: 1.0.0
 }
 
 
+
+/*-- RESPONSIVE STYLES --*/
+
 @include media('<lg') {
   .mobile-progress-widget{
     display: block;
@@ -234,6 +244,7 @@ Version: 1.0.0
 //end .recent-activity-widget
 
 
+/*-- RESPONSIVE STYLES --*/
 
 @include media('<1080px', ">=md") {
   .recent-activity-widget__header{

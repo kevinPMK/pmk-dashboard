@@ -10,6 +10,25 @@ Version: 1.0.0
 
 
 /*------------------------------------------------------------------------
+  Page Wrap - wraps everything except for primary nav
+------------------------------------------------------------------------*/
+
+.page-wrap{
+  background: $body-bg-color;
+}
+
+/*-- PAGE STATE CHANGE --*/
+
+
+.settings-expanded{
+  .page-wrap{
+    //transform: translate3d( -340px, $grid*3, 0px );
+  }
+}
+
+
+
+/*------------------------------------------------------------------------
   Page Shift Wrap - wraps everything except for primary nav
 ------------------------------------------------------------------------*/
 
@@ -38,7 +57,7 @@ Version: 1.0.0
 @include media('<sm') {
   .mobile-left-expanded{
     .page-shift-wrap{
-      transform: translateX(200px);
+      transform: translateX($menu-width);
     }
   }
 }
@@ -48,6 +67,14 @@ Version: 1.0.0
   .desktop-left-collapsed{
     .page-shift-wrap{
       padding-left: $grid*8;
+    }
+  }
+}
+
+@include media('<lg') {
+  .medium-right-expanded{
+    .page-shift-wrap{
+      transform: translateX(-$sidebar-width);
     }
   }
 }

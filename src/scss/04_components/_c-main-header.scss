@@ -120,6 +120,10 @@ Version: 1.0.0
 @include media('<lg') {
   .main-header__toggle-progress{
     display: block;
+    .app-icon{
+      opacity: 1;
+      transition: all 0.15s $curved-transition;
+    }
   }
 }
 
@@ -205,15 +209,30 @@ Version: 1.0.0
   }
 }
 
+@include media('<lg') {
+  .medium-right-expanded{
+    .main-header{
+      transform: translateX(-$sidebar-width);
+    }
+    .main-header__toggle-progress{
+      .app-icon{
+        opacity: 0;
+      }
+    }
+  }
+}
+
+
+
 
 /*------------------------------------------------------------------------
   Mobile Menu Close
 ------------------------------------------------------------------------*/
 
-.mobile-menu-close{
+
+%menu-icon{
   position: fixed;
   top: 0;
-  left: -$grid*8;
   width: $grid*8;
   height: $grid*8;
   z-index: 20;
@@ -248,12 +267,30 @@ Version: 1.0.0
   }
 }
 
+.mobile-menu-close{
+  @extend %menu-icon;
+  left: -$grid*8;
+}
+
+.right-menu-close{
+  @extend %menu-icon;
+  right: -$grid*8;
+}
+
 /*-- PAGE STATE CHANGES --*/
 
 @include media('<sm') {
   .mobile-left-expanded{
     .mobile-menu-close{
       left: $menu-width;
+    }
+  }
+}
+
+@include media('<lg') {
+  .medium-right-expanded{
+    .right-menu-close{
+      right: $sidebar-width;
     }
   }
 }
@@ -318,22 +355,6 @@ Version: 1.0.0
     transition: all 0.15s $curved-transition;
   }
 }
-  .nav-settings__caret{
-    opacity: 0;
-    width: $grid*2;
-    height: $grid*2;
-    border-left: 1px solid $divider-on-white;
-    border-top: 1px solid $divider-on-white;
-    background: #fff;
-    transform: rotateZ(45deg);
-    position: absolute;
-    left: 50%;
-    margin-left: -$grid;
-    box-sizing: border-box;
-    bottom: -$grid*2;
-    transition: all 0.15s $curved-transition;
-    transition-delay: 0.06s;
-  }
 //end .nav-settings__toggle
 
 
@@ -348,10 +369,6 @@ Version: 1.0.0
       transform: rotateZ(45deg);
     }
   }
-    .nav-settings__caret{
-      opacity: 1;
-      bottom: -$grid;
-    }
   //end .nav-settings__toggle
 }
 
@@ -360,23 +377,91 @@ Version: 1.0.0
   Nav Settings Flyout
 ------------------------------------------------------------------------*/
 
-.nav-settings{
-  position: relative;
+
+.nav-settings__flyout{
+  position: fixed;
+  top: -$grid*2;
+  right: -$grid*2;
+  background: #fff;
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+  width: $grid*36;
+  border-left: 1px solid $divider-on-white;
+  border-top: none;
+  transition: all 0.15s $curved-transition;
+  z-index: 30;
+  border-radius: $grid;
+  display: none;
+  opacity: 0;
+  max-height: 90vh;
+  overflow-y: auto;
 }
-  .nav-settings__flyout{
-    height: 0;
-    opacity: 0;
+  .nav-settings__menu-header{
+    text-align: left;
+    padding: $grid*2 $grid*5 $grid*2 $grid*3;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid $divider-on-white;
+    color: $widget-header-gray;
+    font-size: 1.143em;
+    position: relative;
+    span{
+      line-height: $grid*4;
+    }
+  }
+    .nav-settings__menu-close{
+      width: $grid*6;
+      height: $grid*6;
+      position: absolute;
+      top: $grid*1;
+      right: $grid*1;
+      svg{
+        color: $brand-primary;
+        width: $grid*4;
+        height: $grid*4;
+        margin-left: -$grid*2;
+        margin-top: -$grid*2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        circle{
+          opacity: 0;
+          stroke-dasharray: 100.2;
+          stroke-dashoffset: 100.2;
+          transition: all 0.15s $curved-transition;
+        }
+      }
+      .bar{
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: $dash-label-gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -1px;
+      }
+      .bar-1{
+        transform: rotateZ(45deg);
+      }
+      .bar-2{
+        transform: rotateZ(-45deg);
+      }
+      &:hover{
+        .bar{
+          background-color: $brand-primary;
+        }
+        svg{
+          circle{
+            opacity: 1;
+            stroke-dashoffset: 0;
+          }
+        }
+      }
+    }
+  //end .nav-settings__menu-header
+  .nav-settings__menu-wrap{
     overflow: hidden;
-    position: absolute;
-    top: $grid*8 + 1;
-    background: #fff;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
-    width: $grid*36;
-    border-left: 1px solid $divider-on-white;
-    border-top: none;
-    right: 0;
-    transition: all 0.15s $curved-transition;
-    z-index: 30;
     .app-icon{
       color: $brand-primary;
       display: block;
@@ -403,89 +488,94 @@ Version: 1.0.0
       opacity: 0;
       margin-top: 0;
       &:hover{
+        background: $lightest-gray;
         color: $brand-primary;
         .app-icon{
           color: $brand-secondary;
         }
       }
       transition: opacity 0.15s $curved-transition;
-      .temp-icon{
-        transition: margin-top 0.15s $curved-transition;
-      }
       &:nth-child(1){
-        transition-delay: 0.04s;
-        .app-icon{
-          transition-delay: 0.04s;
-        }
+        transition-delay: 0.18s;
       }
       &:nth-child(2){
-        transition-delay: 0.02s;
-        .app-icon{
-          transition-delay: 0.02s;
-        }
+        transition-delay: 0.14s;
       }
       &:nth-child(3){
-        transition-delay: 0.00s;
-        .app-icon{
-          transition-delay: 0.00s;
-        }
+        transition-delay: 0.10s;
       }
       &:nth-child(4){
-        transition-delay: 0.04s;
-        .app-icon{
-          transition-delay: 0.04s;
-        }
+        transition-delay: 0.18s;
       }
       &:nth-child(5){
-        transition-delay: 0.02s;
-        .app-icon{
-          transition-delay: 0.02s;
-        }
+        transition-delay: 0.14s;
       }
       &:nth-child(6){
-        transition-delay: 0.02s;
-        .app-icon{
-          transition-delay: 0.02s;
-        }
+        transition-delay: 0.14s;
       }
       &:nth-child(7){
-        transition-delay: 0.04s;
-        .app-icon{
-          transition-delay: 0.04s;
-        }
+        transition-delay: 0.18s;
       }
       &:nth-child(8){
-        transition-delay: 0.04s;
-        .app-icon{
-          transition-delay: 0.04s;
-        }
+        transition-delay: 0.18s;
       }
       &:nth-child(9){
-        transition-delay: 0.04s;
-        .app-icon{
-          transition-delay: 0.04s;
-        }
+        transition-delay: 0.18s;
       }
     }
   }
-  .nav-settings__menu{
+  .nav-settings__menu-footer{
     padding: $grid*2;
     text-align: center;
-    float: left;
     width: 100%;
     box-sizing: border-box;
+    button{
+      opacity: 0;
+      transition: opacity 0.15s $curved-transition;
+      transition-delay: 0.22s;
+    }
   }
 //end .nav-settings
 
 
+
+
+
 /*-- PAGE STATE CHANGES --*/
+
+
+.settings-expanded--enter{
+  .nav-settings__flyout{
+    display: block;
+  }
+}
 
 .settings-expanded{
   .nav-settings__flyout{
-    height: $grid*44;
+    display: block;
     opacity: 1;
+    top: $grid*3;
+    right: $grid*3;
+    @include media('<sm') {
+      top: $grid;
+      right: $grid;
+    }
+  }
+  .nav-settings__menu-wrap{
     a{
       opacity: 1;
     }
+  }
+  .nav-settings__menu-footer{
+    button{
+      opacity: 1;
+    }
+  }
+}
+
+.settings-expanded--exit{
+  .nav-settings__flyout{
+    opacity: 0;
+    display: block;
   }
 }

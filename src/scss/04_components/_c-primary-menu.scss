@@ -17,13 +17,14 @@ Version: 1.0.0
 .primary-menu{
   width: $menu-width;
   position: fixed;
-  z-index: 30;
   left: 0;
   top: 0;
   bottom: 0;
   overflow-y: auto;
   background: linear-gradient( 20deg, $app-blue-dark, $app-blue-light );
   transition: all 0.15s $curved-transition;
+  padding-left: $grid*2;
+  margin-left: -$grid*2;
 }
   .school-card{
     box-sizing: border-box;
@@ -72,6 +73,28 @@ Version: 1.0.0
     }
   //end .school-card
 //end .primary-menu
+
+
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<sm') {
+  .primary-menu{
+    z-index: 30;
+  }
+}
+
+
+/*-- PAGE STATE CHANGE --*/
+
+@include media('<lg') {
+  .medium-right-expanded{
+    .primary-menu{
+      transform: translateX(-$sidebar-width);
+    }
+  }
+}
+
+
 
 
 /*------------------------------------------------------------------------
@@ -276,7 +299,7 @@ Version: 1.0.0
       }
       //end .primary-nav
       .collapsed-primary-nav{
-        left: 0;
+        left: $grid*2;
         >ul{
           >li{
             opacity: 1;

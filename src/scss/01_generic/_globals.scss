@@ -18,18 +18,18 @@ body,
 html{
   padding: 0px;
   margin: 0px;
+  min-width: 320px;
 }
-
-body{
-  background: $body-bg-color;
-  overflow-x: hidden;
-}
-
 
 html{
   font-family: $primary-font;
   font-size: 14px;
   font-weight: 400;
+}
+
+body{
+  background: $body-bg-color;
+  overflow-x: hidden;
 }
 
 a{
@@ -74,4 +74,10 @@ button{
 
 svg{
   vertical-align: top;
+}
+
+/*-- PAGE STATE CHANGE --*/
+
+.scroll-locked{
+  overflow: hidden;
 }
