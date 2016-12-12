@@ -246,7 +246,11 @@ Version: 1.0.0
 
 /*-- RESPONSIVE STYLES --*/
 
-@include media('<1080px', ">=md") {
+
+// THIS IS DUPLICATED BECAUSE OF A LIMITATION OF INCLUDE MEDIA
+
+
+@include media('<1080px', '>=md'){
   .recent-activity-widget__header{
     flex-wrap: wrap;
     .main-widget__header-dropdown-wrap{
@@ -263,6 +267,25 @@ Version: 1.0.0
     }
   }
 }
+
+@include media('<520px'){
+  .recent-activity-widget__header{
+    flex-wrap: wrap;
+    .main-widget__header-dropdown-wrap{
+      width: 100%;
+      display: block;
+      margin-top: $grid*2;
+      border-top: 1px solid $dash-divider-gray;
+      padding-top: $grid*2;
+      padding-left: 0px;
+      margin-left: -$grid*3;
+      margin-right: -$grid*3;
+      padding-left: $grid*3;
+      padding-right: $grid*3;
+    }
+  }
+}
+
 
 
 /*------------------------------------------------------------------------
@@ -310,10 +333,13 @@ Version: 1.0.0
     //end .dismissal-snapshot-widget__info
     .dismissal-snapshot-widget__icon{
       margin-left: auto;
+      margin-top: -2px;
+      width: $grid*7;
+      height: $grid*7;
       .app-icon{
         margin-right: -$grid;
-        width: $grid*6;
-        height: $grid*6;
+        width: $grid*7;
+        height: $grid*7;
       }
     }
   //end .dismissal-snapshot-widget__card

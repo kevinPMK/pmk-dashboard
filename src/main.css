@@ -1531,6 +1531,22 @@ Version: 1.0.0
       padding-left: 24px;
       padding-right: 24px; } }
 
+@media (max-width: 519px) {
+  .recent-activity-widget__header {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .recent-activity-widget__header .main-widget__header-dropdown-wrap {
+      width: 100%;
+      display: block;
+      margin-top: 16px;
+      border-top: 1px solid #e2e6ea;
+      padding-top: 16px;
+      padding-left: 0px;
+      margin-left: -24px;
+      margin-right: -24px;
+      padding-left: 24px;
+      padding-right: 24px; } }
+
 /*------------------------------------------------------------------------
   Dismissal Update Snapshot Widget
 ------------------------------------------------------------------------*/
@@ -1572,11 +1588,14 @@ Version: 1.0.0
   font-weight: 300; }
 
 .dismissal-snapshot-widget__icon {
-  margin-left: auto; }
+  margin-left: auto;
+  margin-top: -2px;
+  width: 56px;
+  height: 56px; }
   .dismissal-snapshot-widget__icon .app-icon {
     margin-right: -8px;
-    width: 48px;
-    height: 48px; }
+    width: 56px;
+    height: 56px; }
 
 /*------------------------------------------------------------------------
   Staff Directory
