@@ -22,7 +22,7 @@ Version: 1.0.0
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(33,33,33,0.65);
+  background: linear-gradient(to bottom, #163c57 0%,#0c202e 100%);
   z-index: 10;
   display: none;
   opacity: 0;
@@ -31,7 +31,7 @@ Version: 1.0.0
     display: block;
   }
   &.mobile-page-darken--active{
-    opacity: 1;
+    opacity: 0.8;
     display: block;
   }
 }
@@ -48,7 +48,7 @@ Version: 1.0.0
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(33,33,33,0.65);
+  background: linear-gradient(to bottom, #163c57 0%,#0c202e 100%);
   z-index: 10;
   display: none;
   opacity: 0;
@@ -57,7 +57,7 @@ Version: 1.0.0
     display: block;
   }
   &.mobile-page-darken--active{
-    opacity: 1;
+    opacity: 0.8;
     display: block;
   }
 }

@@ -90,6 +90,10 @@ html {
   font-size: 14px;
   font-weight: 400; }
 
+@media (max-width: 799px) {
+  html {
+    font-size: 13px; } }
+
 body {
   background: #e9ecf3;
   overflow-x: hidden; }
@@ -209,6 +213,9 @@ Version: 1.0.0
       -ms-flex: 2;
           flex: 2; }
 
+.g-col-xl-only {
+  display: none; }
+
 @media (max-width: 1023px) {
   .g-row {
     margin: 0;
@@ -216,13 +223,23 @@ Version: 1.0.0
   .g-col-sm {
     display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0; }
+    padding: 0px; }
   .g-col-lg {
     display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding: 0px; } }
+
+@media (min-width: 1961px) {
+  .g-col-lg {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2; }
+  .g-col-sm {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  .g-col-mqxl-only {
+    display: block; } }
 
 /*---------------------------------------------------------------------------
 
@@ -245,6 +262,23 @@ Version: 1.0.0
   .dash-light-button:hover {
     background: #eeeeee;
     color: #3FA9F5; }
+
+.dash-light-button--mobile-swap .app-icon {
+  display: none; }
+
+/*-- RESPONSIVE STYLES --*/
+@media (max-width: 799px) {
+  .dash-light-button--mobile-swap {
+    width: 40px;
+    height: 40px;
+    padding: 0; }
+    .dash-light-button--mobile-swap span {
+      display: none; }
+    .dash-light-button--mobile-swap .app-icon {
+      margin-top: -1px;
+      width: 40px;
+      height: 40px;
+      display: block; } }
 
 /*---------------------------------------------------------------------------
 
@@ -337,7 +371,8 @@ Version: 1.0.0
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(33, 33, 33, 0.65);
+  background: -webkit-linear-gradient(top, #163c57 0%, #0c202e 100%);
+  background: linear-gradient(to bottom, #163c57 0%, #0c202e 100%);
   z-index: 10;
   display: none;
   opacity: 0;
@@ -346,7 +381,7 @@ Version: 1.0.0
   .mobile-page-darken.mobile-page-darken--block {
     display: block; }
   .mobile-page-darken.mobile-page-darken--active {
-    opacity: 1;
+    opacity: 0.8;
     display: block; }
 
 /*------------------------------------------------------------------------
@@ -359,7 +394,8 @@ Version: 1.0.0
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(33, 33, 33, 0.65);
+  background: -webkit-linear-gradient(top, #163c57 0%, #0c202e 100%);
+  background: linear-gradient(to bottom, #163c57 0%, #0c202e 100%);
   z-index: 10;
   display: none;
   opacity: 0;
@@ -368,7 +404,7 @@ Version: 1.0.0
   .desktop-darken-content.mobile-page-darken--block {
     display: block; }
   .desktop-darken-content.mobile-page-darken--active {
-    opacity: 1;
+    opacity: 0.8;
     display: block; }
 
 /* Build Components */
@@ -552,6 +588,9 @@ Version: 1.0.0
 @media (max-width: 799px) {
   .main-header {
     left: 0; }
+  .main-header__logo {
+    padding-left: 16px;
+    padding-right: 16px; }
   .main-header__menu-toggle {
     display: none; }
   .main-header__logo {
@@ -701,6 +740,11 @@ Version: 1.0.0
   width: 48px;
   height: 48px;
   border-radius: 48px; }
+
+/*-- RESPONSIVE STYLES --*/
+@media (max-width: 799px) {
+  .profile-mini-card {
+    display: none; } }
 
 /*------------------------------------------------------------------------
   Nav Settings Toggle
@@ -872,6 +916,51 @@ Version: 1.0.0
     -webkit-transition-delay: 0.22s;
             transition-delay: 0.22s; }
 
+.settings-profile-card {
+  display: none;
+  padding: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e2e6ea;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+  transition: opacity 0.15s cubic-bezier(0.34, 0.61, 0.59, 1.11);
+  -webkit-transition-delay: 0.22s;
+          transition-delay: 0.22s; }
+
+.settings-profile-card__thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px; }
+
+.settings-profile-card__info {
+  padding-left: 16px; }
+
+.settings-profile-card__name {
+  color: #4C7691;
+  display: block;
+  line-height: 1; }
+
+.settings-profile-card__title {
+  line-height: 8px;
+  font-size: 0.714em;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4C7691;
+  opacity: 0.55;
+  display: block;
+  padding-top: 3px; }
+
+/*-- RESPONSIVE STYLES --*/
+@media (max-width: 799px) {
+  .settings-profile-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
 /*-- PAGE STATE CHANGES --*/
 .settings-expanded--enter .nav-settings__flyout {
   display: block; }
@@ -890,6 +979,9 @@ Version: 1.0.0
   opacity: 1; }
 
 .settings-expanded .nav-settings__menu-footer button {
+  opacity: 1; }
+
+.settings-expanded .settings-profile-card {
   opacity: 1; }
 
 .settings-expanded--exit .nav-settings__flyout {
@@ -1309,7 +1401,7 @@ Version: 1.0.0
 /*---------------------------------------------------------------------------
 
 
-Primary Menu
+Dashboard
 By: Kevin Mercier
 Version: 1.0.0
 
@@ -1350,7 +1442,9 @@ Version: 1.0.0
 
 @media (max-width: 799px) {
   .main-column {
-    padding: 16px; } }
+    padding: 12px; }
+  .main-column__content {
+    padding-top: 0; } }
 
 /*------------------------------------------------------------------------
   Dashboard Global Widget
@@ -1364,7 +1458,7 @@ Version: 1.0.0
   color: #95989A; }
 
 .main-widget__header {
-  padding: 16px 24px;
+  padding: 8px 24px;
   border-bottom: 1px solid #e2e6ea;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1373,12 +1467,16 @@ Version: 1.0.0
       -ms-flex-align: center;
           align-items: center; }
   .main-widget__header h3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
     font-size: 1.286em;
-    margin: 0;
     margin-right: 16px;
     line-height: 24px;
     color: #666c73;
     font-weight: 300; }
+  .main-widget__header button {
+    margin-top: 8px;
+    margin-bottom: 8px; }
 
 .main-widget__header-dropdown-wrap {
   margin-left: auto;
@@ -1391,6 +1489,19 @@ Version: 1.0.0
     border: 1px solid #d8deea;
     background-color: #fff; }
 
+@media (max-width: 799px) {
+  .main-widget {
+    margin-top: 12px; } }
+
+/*---------------------------------------------------------------------------
+
+
+Mobile Progress Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
   Mobile Progress Widget
 ------------------------------------------------------------------------*/
@@ -1444,8 +1555,35 @@ Version: 1.0.0
   .mobile-progress-widget {
     display: block; } }
 
+@media (max-width: 799px) {
+  .mobile-progress-widget__header .dash-light-button--mobile-swap {
+    margin-left: auto; } }
+
+@media (max-width: 499px) {
+  .mobile-progress-widget__content {
+    display: block; }
+  .mobile-progress-widget__left {
+    margin: 0 auto;
+    border-right: none;
+    padding-right: 0; }
+  .mobile-progress-widget__right {
+    padding-left: 0px;
+    width: 100%; }
+    .mobile-progress-widget__right p {
+      margin-top: 24px;
+      margin-bottom: 0px; } }
+
+/*---------------------------------------------------------------------------
+
+
+Recent Activity
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
-  Recent Activity Widget
+  Recent Activity
 ------------------------------------------------------------------------*/
 .recent-activity-widget__card {
   padding: 16px;
@@ -1467,7 +1605,10 @@ Version: 1.0.0
   border-radius: 40px; }
 
 .recent-activity-widget__card-content {
-  padding-right: 16px; }
+  padding-right: 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 
 .recent-activity-widget__card-title {
   color: #8298B4;
@@ -1483,7 +1624,10 @@ Version: 1.0.0
   font-size: 0.857rem;
   color: #A6B7C3;
   font-family: "proxima-nova", sans-serif;
-  font-weight: 500; }
+  font-weight: 500;
+  padding-top: 6px; }
+  .recent-activity-widget__card-meta span {
+    white-space: nowrap; }
 
 .recent-activity-widget__action {
   margin-left: auto;
@@ -1495,10 +1639,12 @@ Version: 1.0.0
 
 .recent-activity-widget__student-id {
   white-space: nowrap;
-  color: #c4d0d8; }
+  color: #c4d0d8;
+  padding-left: 8px; }
 
 .recent-activity-widget__view-more {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding-left: 8px; }
   .recent-activity-widget__view-more .app-icon {
     vertical-align: middle;
     margin-top: -2px;
@@ -1519,10 +1665,13 @@ Version: 1.0.0
   .recent-activity-widget__header {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
+    .recent-activity-widget__header .dash-light-button--mobile-swap {
+      margin-left: auto; }
     .recent-activity-widget__header .main-widget__header-dropdown-wrap {
       width: 100%;
       display: block;
-      margin-top: 16px;
+      margin-top: 8px;
+      margin-bottom: 8px;
       border-top: 1px solid #e2e6ea;
       padding-top: 16px;
       padding-left: 0px;
@@ -1531,24 +1680,143 @@ Version: 1.0.0
       padding-left: 24px;
       padding-right: 24px; } }
 
-@media (max-width: 519px) {
+@media (max-width: 499px) {
   .recent-activity-widget__header {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
+    .recent-activity-widget__header .dash-light-button--mobile-swap {
+      margin-left: auto; }
     .recent-activity-widget__header .main-widget__header-dropdown-wrap {
       width: 100%;
       display: block;
-      margin-top: 16px;
+      margin-top: 8px;
+      margin-bottom: 8px;
       border-top: 1px solid #e2e6ea;
       padding-top: 16px;
       padding-left: 0px;
       margin-left: -24px;
       margin-right: -24px;
       padding-left: 24px;
-      padding-right: 24px; } }
+      padding-right: 24px; }
+  .recent-activity-widget__card {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .recent-activity-widget__action {
+    display: none; } }
 
+/*---------------------------------------------------------------------------
+
+
+Leaderboard Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
-  Dismissal Update Snapshot Widget
+  Leaderboard Widget
+------------------------------------------------------------------------*/
+.leaderboard-widget__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; }
+  .leaderboard-widget__table th {
+    border-left: 1px solid #e2e6ea;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 8px 16px; }
+    .leaderboard-widget__table th:first-child {
+      border-left: none; }
+    .leaderboard-widget__table th.leaderboard-widget__table-rank-th {
+      width: 64px;
+      text-align: center; }
+    .leaderboard-widget__table th.leaderboard-widget__table-activity-count-th {
+      width: 144px; }
+  .leaderboard-widget__table td {
+    border-top: 1px solid #e2e6ea;
+    border-left: 1px solid #e2e6ea;
+    padding: 16px;
+    line-height: 1.429rem; }
+    .leaderboard-widget__table td:first-child {
+      border-left: none; }
+    .leaderboard-widget__table td.leaderboard-widget__table-rank-td {
+      text-align: center; }
+  .leaderboard-widget__table tr:first-child .leaderboard-widget__table-rank-td {
+    background: url("../src/svg/star.svg") center center no-repeat;
+    background-size: 48px 48px;
+    color: #fff; }
+
+@media (max-width: 499px) {
+  .leaderboard-widget__table th.leaderboard-widget__table-activity-count-th {
+    width: 104px; } }
+
+/*---------------------------------------------------------------------------
+
+
+Staff Directory
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Staff Directory
+------------------------------------------------------------------------*/
+.staff-directory-widget__user {
+  border-top: 1px solid #e2e6ea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 16px; }
+  .staff-directory-widget__user:first-child {
+    border-top: none; }
+
+.staff-directory-widget__name {
+  padding-right: 16px;
+  color: #95989A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.staff-directory-widget__bubble {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background-color: #95989A;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px; }
+
+.staff-directory-widget__status {
+  margin-left: auto;
+  text-transform: uppercase;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 0.857rem;
+  color: #A6B7C3; }
+
+.staff-directory-widget__user--online .staff-directory-widget__bubble {
+  background-color: #7AC943; }
+
+.staff-directory-widget__user--online .staff-directory-widget__status {
+  color: #7AC943; }
+
+/*---------------------------------------------------------------------------
+
+
+Dismissal Snapshot Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+  Dismissal Snapshot Widget
 ------------------------------------------------------------------------*/
 .dismissal-snapshot-widget__card {
   padding: 16px 24px;
@@ -1597,86 +1865,15 @@ Version: 1.0.0
     width: 56px;
     height: 56px; }
 
-/*------------------------------------------------------------------------
-  Staff Directory
-------------------------------------------------------------------------*/
-.staff-directory-widget__user {
-  border-top: 1px solid #e2e6ea;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 8px 16px; }
-  .staff-directory-widget__user:first-child {
-    border-top: none; }
+/*---------------------------------------------------------------------------
 
-.staff-directory-widget__name {
-  padding-right: 16px;
-  color: #95989A;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
 
-.staff-directory-widget__bubble {
-  width: 8px;
-  height: 8px;
-  border-radius: 8px;
-  background-color: #95989A;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px; }
+Registered Parents Widget
+By: Kevin Mercier
+Version: 1.0.0
 
-.staff-directory-widget__status {
-  margin-left: auto;
-  text-transform: uppercase;
-  font-family: "proxima-nova", sans-serif;
-  font-size: 0.857rem;
-  color: #A6B7C3; }
 
-.staff-directory-widget__user--online .staff-directory-widget__bubble {
-  background-color: #7AC943; }
-
-.staff-directory-widget__user--online .staff-directory-widget__status {
-  color: #7AC943; }
-
-/*------------------------------------------------------------------------
-  Leaderboard Widget
-------------------------------------------------------------------------*/
-.leaderboard-widget__table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; }
-  .leaderboard-widget__table th {
-    border-left: 1px solid #e2e6ea;
-    text-align: left;
-    box-sizing: border-box;
-    padding: 8px 16px; }
-    .leaderboard-widget__table th:first-child {
-      border-left: none; }
-    .leaderboard-widget__table th.leaderboard-widget__table-rank-th {
-      width: 64px;
-      text-align: center; }
-    .leaderboard-widget__table th.leaderboard-widget__table-activity-count-th {
-      width: 144px; }
-  .leaderboard-widget__table td {
-    border-top: 1px solid #e2e6ea;
-    border-left: 1px solid #e2e6ea;
-    padding: 16px;
-    line-height: 24px; }
-    .leaderboard-widget__table td:first-child {
-      border-left: none; }
-    .leaderboard-widget__table td.leaderboard-widget__table-rank-td {
-      text-align: center; }
-  .leaderboard-widget__table tr:first-child .leaderboard-widget__table-rank-td {
-    background: url("../src/svg/star.svg") center center no-repeat;
-    background-size: 48px 48px;
-    color: #fff; }
-
+---------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
   Registered Parents Widget
 ------------------------------------------------------------------------*/
@@ -1698,7 +1895,6 @@ Version: 1.0.0
 .registered-parents-widget__circle-wrap-right {
   width: 50%;
   height: 196px;
-  overflow: hidden;
   text-overflow: ellipsis; }
 
 .registered-parents-widget__info-block {
@@ -1788,9 +1984,6 @@ Version: 1.0.0
   display: inline-block;
   margin: 0 auto; }
 
-/*------------------------------------------------------------------------
-  Weather Widget
-------------------------------------------------------------------------*/
 /* Build Shame */
 /*---------------------------------------------------------------------------
 
@@ -1801,3 +1994,20 @@ Version: 1.0.0
 
 
 ---------------------------------------------------------------------------*/
+.mqxl-only {
+  display: none; }
+
+.mqsm-only {
+  display: none; }
+
+@media (min-width: 1960px) {
+  .mqxl-only {
+    display: block; }
+  .not-mqxl {
+    display: none; } }
+
+@media (max-width: 799px) {
+  .mqsm-only {
+    display: block; }
+  .not-mqsm {
+    display: none; } }

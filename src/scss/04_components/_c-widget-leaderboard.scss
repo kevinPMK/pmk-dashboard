@@ -1,0 +1,75 @@
+/*---------------------------------------------------------------------------
+
+
+Leaderboard Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Leaderboard Widget
+------------------------------------------------------------------------*/
+
+.leaderboard-widget{
+
+}
+  .leaderboard-widget__table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    th{
+      border-left: 1px solid $dash-divider-gray;
+      text-align: left;
+      box-sizing: border-box;
+      padding: $grid $grid*2;
+      @extend .label-on-light;
+      &:first-child{
+        border-left: none;
+      }
+      &.leaderboard-widget__table-rank-th{
+        width: $grid*8;
+        text-align: center;
+      }
+      &.leaderboard-widget__table-activity-count-th{
+        width: $grid*18;
+      }
+    }
+    td{
+      border-top: 1px solid $dash-divider-gray;
+      border-left: 1px solid $dash-divider-gray;
+      padding: $grid*2;
+      line-height: 1.429rem;
+      &:first-child{
+        border-left: none;
+      }
+      &.leaderboard-widget__table-rank-td{
+        text-align: center;
+      }
+      &.leaderboard-widget__table-name-td{
+
+      }
+      &.leaderboard-widget__table-activity-count-td{
+
+      }
+    }
+    tr:first-child{
+      .leaderboard-widget__table-rank-td{
+        background: url('../src/svg/star.svg') center center no-repeat;
+        background-size: $grid*6 $grid*6;
+        color: #fff;
+      }
+    }
+  }
+//end .leaderboard-widget
+
+@include media('<xs') {
+  .leaderboard-widget__table{
+    th.leaderboard-widget__table-activity-count-th{
+      width: $grid*13;
+    }
+  }
+}

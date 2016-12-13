@@ -1,0 +1,104 @@
+/*---------------------------------------------------------------------------
+
+
+Mobile Progress Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Mobile Progress Widget
+------------------------------------------------------------------------*/
+
+.mobile-progress-widget{
+  display: none;
+}
+  .mobile-progress-widget__content{
+    display: flex;
+    align-items: center;
+    padding: $grid*3;
+  }
+    .mobile-progress-widget__left{
+      width: $grid*24;
+      padding-right: $grid*3;
+      border-right: 1px solid $dash-divider-gray;
+    }
+    .mobile-progress-widget__right{
+      flex: 1;
+      padding-left: $grid*3;
+    }
+  //end .mobile-progress-widget__content
+//end .mobile-progress-widget
+
+
+.mobile-progress-widget{
+  .svg-donut-chart{
+    width: $grid*24;
+    height: $grid*24;
+  }
+    .svg-donut-chart__meta{
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+      .svg-donut-chart__count{
+        color: $dash-copy-gray;
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 400;
+      }
+      .svg-donut-chart__label{
+        color: lighten($dash-copy-gray, 10%);
+        text-transform: uppercase;
+      }
+    //end .svg-donut-chart__meta
+  //end .svg-donut-chart
+}
+
+
+
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<lg') {
+  .mobile-progress-widget{
+    display: block;
+  }
+}
+
+@include media('<sm') {
+  .mobile-progress-widget__header{
+    .dash-light-button--mobile-swap{
+      margin-left: auto;
+    }
+  }
+}
+
+
+@include media('<xs') {
+  .mobile-progress-widget{
+  }
+    .mobile-progress-widget__content{
+      display: block;
+    }
+      .mobile-progress-widget__left{
+        margin: 0 auto;
+        border-right: none;
+        padding-right: 0;
+      }
+      .mobile-progress-widget__right{
+        padding-left: 0px;
+        width: 100%;
+        p{
+          margin-top: $grid*3;
+          margin-bottom: 0px;
+        }
+      }
+    //end .mobile-progress-widget__content
+  //end .mobile-progress-widget
+}

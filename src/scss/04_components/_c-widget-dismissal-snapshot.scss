@@ -1,0 +1,67 @@
+/*---------------------------------------------------------------------------
+
+
+Dismissal Snapshot Widget
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Dismissal Snapshot Widget
+------------------------------------------------------------------------*/
+
+.dismissal-snapshot-widget{
+
+}
+  .dismissal-snapshot-widget__card{
+    padding: $grid*2 $grid*3;
+    border-top: 1px solid $dash-divider-gray;
+    display: flex;
+    &:first-child{
+      border-top: none;
+    }
+    &--changes{
+      color: $brand-tertiary;
+    }
+    &--absentee{
+      color: $brand-secondary;
+    }
+  }
+    .dismissal-snapshot-widget__info{
+      display: flex;
+      align-items: center;
+    }
+      .dismissal-snapshot-widget__count{
+        font-weight: 600;
+        font-size: 3.000rem;
+        padding-right: $grid;
+        line-height: $grid*5;
+        vertical-align: top;
+        margin-top: -$grid;
+      }
+      .dismissal-snapshot-widget__label{
+        color: $dash-light-gray;
+        text-transform: uppercase;
+        font-size: 0.857rem;
+        letter-spacing: 0.05em;
+        font-family: $secondary-font;
+        font-weight: 300;
+      }
+    //end .dismissal-snapshot-widget__info
+    .dismissal-snapshot-widget__icon{
+      margin-left: auto;
+      margin-top: -2px;
+      width: $grid*7;
+      height: $grid*7;
+      .app-icon{
+        margin-right: -$grid;
+        width: $grid*7;
+        height: $grid*7;
+      }
+    }
+  //end .dismissal-snapshot-widget__card
+//end .dismissal-snapshot-widget

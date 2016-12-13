@@ -1,0 +1,65 @@
+/*---------------------------------------------------------------------------
+
+
+Staff Directory
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Staff Directory
+------------------------------------------------------------------------*/
+
+.staff-directory-widget{
+}
+  .staff-directory-widget__list{
+  }
+    .staff-directory-widget__user{
+      border-top: 1px solid $dash-divider-gray;
+      display: flex;
+      align-items: center;
+      padding: $grid $grid*2;
+      &:first-child{
+        border-top: none;
+      }
+    }
+      .staff-directory-widget__name{
+        padding-right: $grid*2;
+        color: $dash-copy-gray;
+        display: flex;
+        align-items: center;
+      }
+        .staff-directory-widget__bubble{
+          width: 8px;
+          height: 8px;
+          border-radius: 8px;
+          background-color: $dash-copy-gray;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: $grid;
+        }
+      //end .staff-widget-name
+      .staff-directory-widget__status{
+        margin-left: auto;
+        text-transform: uppercase;
+        font-family: $secondary-font;
+        font-size: 0.857rem;
+        color: $dash-light-gray;
+      }
+    .staff-directory-widget__user{
+      &--online{
+        .staff-directory-widget__bubble{
+          background-color: $brand-secondary;
+        }
+        .staff-directory-widget__status{
+          color: $brand-secondary;
+        }
+      }
+    }
+    //end .staff-directory-widget__user
+  //end .staff-directory-widget__list
+//end .staff-directory-widget

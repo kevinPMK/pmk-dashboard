@@ -25,3 +25,29 @@ Version: 1.0.0
     color: $brand-primary;
   }
 }
+  .dash-light-button--mobile-swap{
+    .app-icon{
+      display: none;
+    }
+  }
+//end .dash-light-button
+
+
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<sm') {
+  .dash-light-button--mobile-swap{
+    width: $grid*5;
+    height: $grid*5;
+    padding: 0;
+    span{
+      display: none;
+    }
+    .app-icon{
+      margin-top: -1px;
+      width: $grid*5;
+      height: $grid*5;
+      display: block;
+    }
+  }
+}

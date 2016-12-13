@@ -32,6 +32,9 @@ Version: 1.0.0
         @extend .g-col;
         flex: 2;
       }
+      .g-col-xl-only{
+        display: none;
+      }
     //end .g-col
   //end .g-row
 //end .g
@@ -44,13 +47,23 @@ Version: 1.0.0
   .g-col-sm{
     display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0px;
   }
   .g-col-lg{
     display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0px;
+  }
+}
+
+@include media('>xl') {
+  .g-col-lg{
+    flex: 2;
+  }
+  .g-col-sm{
+    flex: 1;
+  }
+  .g-col-mqxl-only{
+    display: block;
   }
 }

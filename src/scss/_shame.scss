@@ -7,3 +7,29 @@ Version: 1.0.0
 
 
 ---------------------------------------------------------------------------*/
+
+.mqxl-only{
+  display: none;
+}
+
+.mqsm-only{
+  display: none;
+}
+
+@include media('>=xl') {
+  .mqxl-only{
+    display: block;
+  }
+  .not-mqxl{
+    display: none;
+  }
+}
+
+@include media('<sm') {
+  .mqsm-only{
+    display: block;
+  }
+  .not-mqsm{
+    display: none;
+  }
+}

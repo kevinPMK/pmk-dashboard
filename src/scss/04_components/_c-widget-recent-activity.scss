@@ -1,0 +1,158 @@
+/*---------------------------------------------------------------------------
+
+
+Recent Activity
+By: Kevin Mercier
+Version: 1.0.0
+
+
+---------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------
+  Recent Activity
+------------------------------------------------------------------------*/
+
+.recent-activity-widget{
+}
+  .recent-activity-widget__feed{
+  }
+    .recent-activity-widget__card{
+      padding: $grid*2;
+      border-top: 1px solid $dash-divider-gray;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      &:first-child{
+        border-top: none;
+      }
+    }
+      .recent-activity-widget__avatar{
+        margin-right: $grid*2;
+        width: $grid*5;
+        height: $grid*5;
+        border-radius: $grid*5;
+      }
+      .recent-activity-widget__card-content{
+        padding-right: $grid*2;
+        flex: 1;
+      }
+        .recent-activity-widget__card-title{
+          color: $dash-label-gray;
+          line-height: 1.1em;
+        }
+          .recent-activity-widget__student-name{
+            color: $brand-primary;
+          }
+          .recent-activity-widget__student-action{
+            color: $brand-secondary;
+          }
+        .recent-activity-widget__card-meta{
+          font-size: 0.857rem;
+          color: $dash-light-gray;
+          font-family: $secondary-font;
+          font-weight: 500;
+          padding-top: 6px;
+          span{
+            white-space: nowrap;
+          }
+        }
+      //end .recent-activity-widget__card-content
+      .recent-activity-widget__action{
+        margin-left: auto;
+        text-align: right;
+        font-size: 0.857rem;
+        color: $dash-light-gray;
+        font-family: $secondary-font;
+        margin-top: 3px; //offset height
+      }
+        .recent-activity-widget__student-id{
+          white-space: nowrap;
+          color: lighten($dash-light-gray, 10%);
+          padding-left: $grid;
+        }
+        .recent-activity-widget__view-more{
+          text-transform: uppercase;
+          padding-left: $grid;
+          .app-icon{
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-left: -6px;
+            margin-right: -6px;
+            width: $grid*2.4;
+            height: $grid*2.4;
+            transition: all 0.15s $curved-transition;
+          }
+        }
+        @at-root{
+          .recent-activity-widget__card:hover{
+            .recent-activity-widget__view-more{
+              color: $brand-primary;
+              .app-icon{
+                margin-right: -10px;
+              }
+            }
+          }
+        }
+      //end .recent-activity-widget__action
+    //end .recent-activity-widget__card-content
+  //end .recent-activity-widget__feed
+//end .recent-activity-widget
+
+
+/*-- RESPONSIVE STYLES --*/
+
+
+// THIS IS DUPLICATED BECAUSE OF A LIMITATION OF INCLUDE MEDIA
+
+
+@include media('<1080px', '>=md'){
+  .recent-activity-widget__header{
+    flex-wrap: wrap;
+    .dash-light-button--mobile-swap{
+      margin-left: auto;
+    }
+    .main-widget__header-dropdown-wrap{
+      width: 100%;
+      display: block;
+      margin-top: $grid;
+      margin-bottom: $grid;
+      border-top: 1px solid $dash-divider-gray;
+      padding-top: $grid*2;
+      padding-left: 0px;
+      margin-left: -$grid*3;
+      margin-right: -$grid*3;
+      padding-left: $grid*3;
+      padding-right: $grid*3;
+    }
+  }
+}
+
+@include media('<xs'){
+  .recent-activity-widget__header{
+    flex-wrap: wrap;
+    .dash-light-button--mobile-swap{
+      margin-left: auto;
+    }
+    .main-widget__header-dropdown-wrap{
+      width: 100%;
+      display: block;
+      margin-top: $grid;
+      margin-bottom: $grid;
+      border-top: 1px solid $dash-divider-gray;
+      padding-top: $grid*2;
+      padding-left: 0px;
+      margin-left: -$grid*3;
+      margin-right: -$grid*3;
+      padding-left: $grid*3;
+      padding-right: $grid*3;
+    }
+  }
+  .recent-activity-widget__card{
+    flex-wrap: wrap;
+  }
+  .recent-activity-widget__action{
+    display: none;
+  }
+}

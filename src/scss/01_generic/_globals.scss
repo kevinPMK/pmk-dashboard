@@ -27,6 +27,12 @@ html{
   font-weight: 400;
 }
 
+@include media('<sm') {
+  html{
+    font-size: 13px;
+  }
+}
+
 body{
   background: $body-bg-color;
   overflow-x: hidden;

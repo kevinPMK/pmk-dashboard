@@ -132,6 +132,10 @@ Version: 1.0.0
   .main-header{
     left: 0;
   }
+    .main-header__logo{
+      padding-left: $grid*2;
+      padding-right: $grid*2;
+    }
     .main-header__menu-toggle{
       display: none;
     }
@@ -341,6 +345,14 @@ Version: 1.0.0
 //end .profile-mini-card
 
 
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<sm') {
+  .profile-mini-card{
+    display: none;
+  }
+}
+
 
 /*------------------------------------------------------------------------
   Nav Settings Toggle
@@ -535,9 +547,54 @@ Version: 1.0.0
       transition-delay: 0.22s;
     }
   }
+  .settings-profile-card{
+    display: none;
+    padding: $grid*2;
+    align-items: center;
+    border-bottom: 1px solid $dash-divider-gray;
+    opacity: 0;
+    transition: opacity 0.15s $curved-transition;
+    transition-delay: 0.22s;
+  }
+    .settings-profile-card__thumb{
+      width: $grid*6;
+      height: $grid*6;
+      border-radius: $grid*6;
+    }
+    .settings-profile-card__info{
+      padding-left: $grid*2;
+    }
+      .settings-profile-card__name{
+        color: $medium-blue;
+        display: block;
+        line-height: 1;
+      }
+      .settings-profile-card__title{
+        line-height: $grid;
+        font-size: 0.714em;
+        font-family: $secondary-font;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $medium-blue;
+        opacity: 0.55;
+        display: block;
+        padding-top: 3px;
+      }
+    //end .settings-profile-card__info
+  //end .settings-profile-card
 //end .nav-settings
 
 
+
+
+/*-- RESPONSIVE STYLES --*/
+
+@include media('<sm') {
+  .settings-profile-card{
+    display: flex;
+  }
+}
 
 
 
@@ -570,6 +627,9 @@ Version: 1.0.0
     button{
       opacity: 1;
     }
+  }
+  .settings-profile-card{
+    opacity: 1;
   }
 }
 
